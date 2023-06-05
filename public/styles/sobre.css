@@ -1,0 +1,6 @@
+img {
+    max-width:10%;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+}

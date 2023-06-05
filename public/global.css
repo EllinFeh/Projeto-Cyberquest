@@ -1,0 +1,126 @@
+
+body {
+  color: #333;
+  font-family: pixel;
+  background-color: rgb(68, 68, 68);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow:hidden;
+}
+
+html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.align-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+@font-face {
+  font-family: pixel;
+  src: url(./pixelada.ttf);
+}
+
+h1 {
+  color: rgb(175, 229, 253);
+  font-family: pixel;
+  font-size: 70px;
+  user-select: none;
+  text-shadow: #FFF 1px 1px 1px;
+  margin:0 ;
+  margin-bottom:90px;
+  padding-top: 90px;
+}
+
+h2,p {
+  color:rgb(114, 248, 147);
+  user-select: none;
+  font-size: 20px;
+  text-shadow: #333 1px 1px 1px;
+}
+
+.explain{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  color: #FFF;
+  text-shadow: #333 1px 1px 1px;
+  
+}
+
+a {
+  color: rgb(175, 229, 253);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: rgb(250, 172, 250);
+}
+
+label {
+  display: block;
+}
+
+button,select {
+  font-family: inherit;
+  -webkit-padding: 0.4em 0;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: solid rgb(239, 248, 252);
+  border-radius: 20px;
+  user-select: none;
+}
+
+button {
+  color: #333;
+  background-color: rgb(175, 229, 253);
+  outline: none;
+  transition: 300ms;
+}
+
+button:disabled {
+  color: #999;
+}
+
+button:not(:disabled):active {
+  background-color: #ddd;
+}
+
+button:focus {
+  border-color: #666;
+}
+
+button.menu {
+  list-style-type: none;
+  font-size: 20px;
+  margin: auto;
+  margin-bottom: 5px;
+  border-style: solid;
+  border-width: 2px;
+  width: 180px;
+  padding: 15px;
+}
+
+button.menu:hover {
+  background-color: rgb(253, 171, 253);
+  cursor: pointer;
+}
+
+.container-page{
+  background: fixed;
+  background-size:cover;
+}
+
+.back{
+  margin: 100vh;
+  position: relative;
+}
+

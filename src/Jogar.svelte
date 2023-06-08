@@ -10,8 +10,9 @@
 
 <div
 	class="container-page"
-	style="background-image: url(./images/Fundos/fundojogar.gif);"
+	style="background-image: url(./images/Fundos/backjogar.gif);"
 >
+
 	<div>
 		<h1>Bem vindo</h1>
 

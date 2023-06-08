@@ -8,7 +8,7 @@
 
 <div
   class="container-page"
-  style="background-image: url(./GIFS/Fundos/fundosobre.gif);"
+  style="background-image: url(./images/Fundos/backsobre.jpg);"
 >
   <h1>Sobre</h1>
 

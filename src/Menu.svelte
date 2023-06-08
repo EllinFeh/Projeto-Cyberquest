@@ -5,7 +5,7 @@
 <svelte:head>
   <link rel="stylesheet" href="/styles/menu.css" />
 </svelte:head>
-<div class="container-page" style="background-image: url(./GIFS/Fundos/fundomenu.gif);">
+<div class="container-page" style="background-image: url(/images/Fundos/backmenu.gif);">
   <h1>CYBERQUEST</h1>
   <div class="align-column">
     <button class="menu" on:click={() => trocarEstadoDoJogo("jogar")}>

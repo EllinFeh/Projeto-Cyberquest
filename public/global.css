@@ -39,7 +39,7 @@ h1 {
 }
 
 h2,p {
-  color:rgb(114, 248, 147);
+  color:rgb(203, 148, 255);
   user-select: none;
   font-size: 20px;
   text-shadow: #333 1px 1px 1px;
@@ -120,7 +120,9 @@ button.menu:hover {
 }
 
 .back{
-  margin: 100vh;
+  margin: 70vh;
   position: relative;
 }
+
+
 

@@ -1,9 +1,12 @@
 <script>
 	// importa os componentes que representam os elementos gráficos do jogo
-	import Jogo from './Jogar.svelte'
+	import Jogo from './Historia.svelte'
 	import Sobre from './Sobre.svelte'
 	import Menu from './Menu.svelte'
     import Ajuda from './Ajuda.svelte'
+	import Historia1 from './Historia1.svelte'
+	import Historia2 from './Historia2.svelte'
+	import Batalha1 from './Batalha1.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from './Estado.js'
@@ -19,4 +22,10 @@
 	<Jogo/>
 {:else if $estado === 'ajuda'}
 	<Ajuda/>
+{:else if $estado === 'historia1'}
+	<Historia1/>
+{:else if $estado === 'historia2'}
+	<Historia2/>
+	{:else if $estado === 'batalha1'}
+	<Batalha1/>
 {/if}

@@ -45,6 +45,20 @@ h2,p {
   text-shadow: #333 1px 1px 1px;
 }
 
+h3 {
+  color:rgb(247, 247, 247);
+  user-select: none;
+  font-size: 20px;
+  text-shadow: #333 1px 1px 1px;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 0px;
+}
+
+.adamimg{
+margin-top: -80px;
+}
+
 .explain{
   margin-left: 20%;
   margin-right: 20%;
@@ -107,6 +121,7 @@ button.menu {
   border-width: 2px;
   width: 180px;
   padding: 15px;
+  margin-top: 10px;
 }
 
 button.menu:hover {
@@ -117,12 +132,27 @@ button.menu:hover {
 .container-page{
   background: fixed;
   background-size:cover;
+  background-repeat: repeat;
 }
 
 .back{
-  margin: 70vh;
+  margin: 30vh;
   position: relative;
 }
 
+.backhistoria{
+  margin: 60vh;
+  position: relative;
+}
+
+.backhistoria1{
+  margin: 40vh;
+  position: relative;
+}
+
+.backhistoria2{
+  margin: 31vh;
+  position: relative;
+}
 
 

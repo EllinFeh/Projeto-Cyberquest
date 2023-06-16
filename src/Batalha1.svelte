@@ -1,10 +1,4 @@
-<script>
-    import { add_iframe_resize_listener } from "svelte/internal";
 
-
-
-
-</script>
 <main>
 
 <h1>

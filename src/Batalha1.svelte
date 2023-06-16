@@ -1,19 +1,26 @@
 <script>
-    import { trocarEstadoDoJogo } from "./Estado.js";
-    import {Personagem} from "./personagens.js";
-    import {Adam} from "./personagens.js";
+    import { add_iframe_resize_listener } from "svelte/internal";
 
-let protagonista = new Adam(100,5,75)
 
-function ataq(){
-    protagonista.ataq
-}
 
 
 </script>
+<main>
 
-<h1>Primeira Batalha</h1>
+<h1>
+    Primeira Batalha
+</h1>
 
+  <script>
+    import  { trocarEstadoDoJogo }  from "./Estado.js";
+    import { Adam } from "./personagens"
+    
+   let protagonista = new Adam (100,5,10)
+   
+   console.log (protagonista)
+  </script>
+ 
+</main>
 
 
 

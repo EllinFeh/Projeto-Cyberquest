@@ -29,4 +29,4 @@
 let prota = new Adam(100,5,40,100)
 
 
-console.log(prota)
+console.log(prota.hp)

@@ -26,7 +26,7 @@ Próximo
 <div>
 		<div>
 			<h1>Ano 2077</h1>
-			<h3>
+			<h3 class="vh">
 				A sociedade de 2077 é fortemente conectada e digitalizada. A
 				Internet das Coisas tornou-se uma realidade onipresente, onde
 				todos os dispositivos estão interligados, desde os carros
@@ -36,7 +36,7 @@ Próximo
 			</h3>
 		</div>
 
-	<p class="backhistoria">‎</p>
+	<p>‎</p>
 	</div>
 
 

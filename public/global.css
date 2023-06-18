@@ -136,22 +136,21 @@ button.menu:hover {
 }
 
 .back{
-  margin: 30vh;
+  margin: 40vh; 
   position: relative;
 }
 
-.backhistoria{
-  margin: 60vh;
-  position: relative;
+.vh{
+  margin-bottom: 45vh;
 }
 
 .backhistoria1{
-  margin: 40vh;
+  margin: 1em 2em;
   position: relative;
 }
 
 .backhistoria2{
-  margin: 31vh;
+  margin: 1em 2em;
   position: relative;
 }
 

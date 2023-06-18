@@ -6,20 +6,21 @@
 class="container-page"
 style="background-image: url(./images/Fundos/historia2.jpg);"
 >
+
 <button
 onmouseenter="audio1.play();"
 onmouseleave="audio2.play();"
 class="menu"
-on:click={() => trocarEstadoDoJogo("batalha1")}
+on:click={() => trocarEstadoDoJogo("battleone")}
 >
 Próximo
 </button>
 
 <h1>Adam</h1>
 
-<img class="adamimg" src="/images/Personagens/personagem.gif" alt="">
 
-<h3>
+
+<h3 class="vh">
     A jornada de Adam foi repleta de reviravoltas, à medida que se deparava com
     traições, manipulações e segredos ocultos. No entanto, ele perseverou,
     movido por um senso de justiça e pela determinação de trazer paz e segurança
@@ -27,5 +28,5 @@ Próximo
     Agora, Adam luta rigorosamente contra monstros que aterrorizam a cidade...
 </h3>
 
-<p class="backhistoria2">‎</p>
+<p>‎</p>
 </div>

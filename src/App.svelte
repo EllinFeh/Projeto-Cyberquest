@@ -6,7 +6,7 @@
     import Ajuda from './Ajuda.svelte'
 	import Historia1 from './Historia1.svelte'
 	import Historia2 from './Historia2.svelte'
-	import Batalha1 from './Batalha1.svelte'
+	import Battleone from '../public/batalhas/BattleOne.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from './Estado.js'
@@ -26,6 +26,6 @@
 	<Historia1/>
 {:else if $estado === 'historia2'}
 	<Historia2/>
-	{:else if $estado === 'batalha1'}
-	<Batalha1/>
+	{:else if $estado === 'battleone'}
+	<Battleone/>
 {/if}

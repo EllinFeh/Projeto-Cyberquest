@@ -17,7 +17,7 @@ Próximo
 </button>
 
 	<h1>Ataques em CyberCity</h1>
-	<h3>
+	<h3 class="vh">
 		Nas ruas movimentadas de uma cidade futurística chamada cybercity, a
 		tecnologia avançada convive com uma sombra sobre seus habitantes.
 		Nos últimos meses, uma série de crimes e ataques misteriosos tem
@@ -29,5 +29,5 @@ Próximo
 		vítima, e ele estava determinado a aniquilar os ataques em cybercity.
 	</h3>
 	
-	<p class="backhistoria1">‎</p>
+	<p>‎</p>
 </div>

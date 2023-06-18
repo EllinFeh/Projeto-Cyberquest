@@ -18,7 +18,7 @@ Próximo
 
 <h1>Adam</h1>
 
-
+<img class="adamimg" src="./images/adam.gif" alt="">
 
 <h3 class="vh">
     A jornada de Adam foi repleta de reviravoltas, à medida que se deparava com
@@ -30,3 +30,9 @@ Próximo
 
 <p>‎</p>
 </div>
+
+<style>
+    .adamimg{
+        margin-top: -80px;
+    }
+</style>

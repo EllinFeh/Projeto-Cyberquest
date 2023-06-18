@@ -1,4 +1,4 @@
-export class Protagonista{
+export class Adam{
 constructor(id,hp,img){
     this.id = "Adam";
     this.srcX = this.srcY = 0;
@@ -22,5 +22,5 @@ constructor(id,hp,img){
 }
 
 var imgAdam = new Image();
-imgAdam.src = "../public/images/Personagens/personagem.gif";
-export var Adam = new Protagonista(imgAdam);
+imgAdam.src = "./image/adam.gif";
+export var Adam = new Adam(imgAdam);

@@ -1,11 +1,11 @@
 <main>
 
     <script>
-      import  { trocarEstadoDoJogo } from "./Estado.js";
-      import {Adam} from "../personagens/Adam";
+      import { trocarEstadoDoJogo } from "./Estado.js";
+      import {Jogador} from "../personagens/Protagonista.js";
     </script> 
    
-   <h1>
+    <h1>
      Battle One
     </h1>
 
@@ -13,4 +13,4 @@
       <img src="./images/adam.gif" alt="Adam">
     </div>
 
-  </main>
+</main>

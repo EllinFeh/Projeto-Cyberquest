@@ -13,7 +13,7 @@
 
 class="container-page"
 style="background-image: url(./images/Fundos/historia1.gif);"
->
+> 
 <VoltarMenu />
 <button
 onmouseenter="audio1.play();"
@@ -36,7 +36,7 @@ Próximo
 			</h3>
 		</div>
 
-	<p>‎</p>
+	<p class="back">‎</p>
 	</div>
 
 

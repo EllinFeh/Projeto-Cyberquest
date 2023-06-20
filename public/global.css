@@ -35,7 +35,7 @@ h1 {
   text-shadow: #FFF 1px 1px 1px;
   margin:0 ;
   margin-bottom:90px;
-  padding-top: 90px;
+  padding-top: 40px;
 }
 
 h2,p {
@@ -97,17 +97,6 @@ button {
   transition: 300ms;
 }
 
-button:disabled {
-  color: #999;
-}
-
-button:not(:disabled):active {
-  background-color: #ddd;
-}
-
-button:focus {
-  border-color: #666;
-}
 
 button.menu {
   list-style-type: none;
@@ -121,6 +110,7 @@ button.menu {
   margin-top: 10px;
 }
 
+
 button.menu:hover {
   background-color: rgb(253, 171, 253);
   cursor: pointer;
@@ -133,22 +123,18 @@ button.menu:hover {
 }
 
 .back{
-  margin: 40vh; 
-  position: relative;
+ min-height: 90vh;
 }
 
 .vh{
   margin-bottom: 45vh;
 }
 
-.backhistoria1{
-  margin: 1em 2em;
-  position: relative;
+.display{
+  display: flex;
+  flex: auto;
+  
 }
 
-.backhistoria2{
-  margin: 1em 2em;
-  position: relative;
-}
 
 

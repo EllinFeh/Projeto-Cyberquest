@@ -18,6 +18,7 @@ Próximo
 
 <h1>Adam</h1>
 
+<div class="cont">
 <img class="adamimg" src="./images/adam.gif" alt="">
 
 <h3 class="vh">
@@ -27,12 +28,30 @@ Próximo
     de volta à Cybercity. <br><br>
     Agora, Adam luta rigorosamente contra monstros que aterrorizam a cidade...
 </h3>
+</div>
 
-<p>‎</p>
+<p class="back">‎</p>
 </div>
 
 <style>
     .adamimg{
         margin-top: -80px;
+    }
+    
+    .cont{
+       display: flex;
+       flex: auto;
+       margin-top: 100px;
+    }
+
+    .vh{
+      margin: 0;
+      margin-right: 50px;
+      margin-left: -100px;
+    }
+
+    h1{
+        font-size: 60px;
+        margin-top: 50px;
     }
 </style>

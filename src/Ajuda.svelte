@@ -14,6 +14,7 @@
 
 		<VoltarMenu />
 
-		<p class="back">©</p>
+		<p class="back">Em construção...
+		</p>
 	</div>
 </div>

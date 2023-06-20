@@ -29,5 +29,5 @@ Próximo
 		vítima, e ele estava determinado a aniquilar os ataques em cybercity.
 	</h3>
 	
-	<p>‎</p>
+	<p class="back">‎</p>
 </div>

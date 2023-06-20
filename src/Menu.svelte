@@ -30,7 +30,7 @@
   </script>
    
 
-    <p class="back">@</p>
+    <p class="back"></p>
     
   </div>
 </div>

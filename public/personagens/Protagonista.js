@@ -13,13 +13,7 @@ export class Adam extends personagem{
         super(hp,def,atq,sct);
         this.img = img;
         this.id = "Adam";
-        this.srcX = this.srcY = 0;
-        this.width = 64;
-        this.height = 64;
-        this.posX = 2220;
-        this.posY = -100;
-        this.srcXC = 64;
-        this.srcYC = 64;
+      
     }
     
 }
@@ -35,12 +29,7 @@ export class Inimigo extends personagem{
         this.img = img;
         this.id = "Inimigo";
         this.srcX = this.srcY = 0;
-        this.width = 64;
-        this.height = 64;
-        this.posX = 2220;
-        this.posY = -80;
-        this.srcXC = 64;
-        this.srcYC = 64;
+ 
     }
 }
 

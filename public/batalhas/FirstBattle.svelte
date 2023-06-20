@@ -7,7 +7,7 @@
     </script> 
    
     <h1>
-     Battle One
+     First Battle
     </h1>
 
     <div id="imgAdam">
@@ -18,4 +18,6 @@
       <img src="./images/inimigo1.gif" alt="Inimigo">
     </div>
 
+    
 </main>
+

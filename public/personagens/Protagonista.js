@@ -18,6 +18,17 @@ export class Adam extends personagem{
     
 }
 
+function trirocket(ObjAtacado){
+    ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def)
+}
+function spraytransfer(ObjAtacado){
+    ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
+}
+
+function medbay() {
+    this.hp = this.hp + 70
+}
+
 const prota = new Adam(100,5,15,70);
 var imgAdam = new Image();
 imgAdam.src = "./images/adam.gif";

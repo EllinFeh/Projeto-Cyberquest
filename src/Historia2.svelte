@@ -11,7 +11,7 @@ style="background-image: url(./images/Fundos/historia2.jpg);"
 onmouseenter="audio1.play();"
 onmouseleave="audio2.play();"
 class="menu"
-on:click={() => trocarEstadoDoJogo("battleone")}
+on:click={() => trocarEstadoDoJogo("firstbattle")}
 >
 Próximo
 </button>

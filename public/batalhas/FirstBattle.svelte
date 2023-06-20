@@ -6,13 +6,14 @@
       import {Inimigo} from "../personagens/Protagonista.js"
     </script> 
 
+
 <div
 class="container-page"
 style="background-image: url(/images/fundos/Fundobatle1.png);"
 > 
 
 <h1 class="txt2">
-  Batalha 
+  Batalha 2
 </h1>
 <h3 class="txt">
   Adam depara-se com um adversário singular que se autodenomina Morgred, 
@@ -44,7 +45,6 @@ style="background-image: url(/images/fundos/Fundobatle1.png);"
 
 <p class="back">‎</p>
 </div>
-</main>
 
 <style>
 
@@ -113,3 +113,6 @@ button.but {
   }
 
 </style>
+    
+</main>
+

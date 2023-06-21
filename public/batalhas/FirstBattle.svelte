@@ -1,6 +1,3 @@
-  <script>
-    import { trocarEstadoDoJogo } from "/Users/Elison/Desktop/cyberquest/src/Estado";
-  </script> 
 
 <main>
 

@@ -15,18 +15,26 @@ export class Adam extends personagem{
         this.id = "Adam";
       
     }
-    
+    trirocket(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def)
+    }
+    spraytransfer(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
+    }
+    medbay(ObjAtacado){
+        this.hp = this.hp + 70
+    }
 }
 
-function trirocket(ObjAtacado){
-    ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def)
+function atq1(){
+   Adam.trirocket(Inimigo)
 }
-function spraytransfer(ObjAtacado){
-    ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
+function atq2(){
+   Adam.spraytransfer(Inimigo)
 }
 
-function medbay() {
-    this.hp = this.hp + 70
+function atq3() {
+    Adam.medbay(Adam)
 }
 
 const prota = new Adam(100,5,15,70);

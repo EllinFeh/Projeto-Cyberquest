@@ -1,32 +1,21 @@
-  <script>
-    import { trocarEstadoDoJogo } from "/Users/Elison/Desktop/cyberquest/src/Estado";
-  </script> 
-
+    <script>
+    </script> 
+    
 <main>
+
 
 <div
 class="container-page"
-style="background-image: url(/images/fundos/Fundobatle1.png);"
+style="background-image: url(/images/fundos/Fundobatle2.png);"
 > 
 
-<button
-onmouseenter="audio1.play();"
-onmouseleave="audio2.play();"
-class="menu"
-on:click={() => trocarEstadoDoJogo ("secondbattle")}
->
-Próximo
-</button>
-
 <h1 class="txt2">
-  Batalha 
+  Batalha 2
 </h1>
 <h3 class="txt">
-  Adam depara-se com um adversário singular que se autodenomina Morgred, 
-  um indivíduo de aparência extraordinária cujas ações malignas resultaram
-  na morte de mais de trinta famílias inocentes. Além disso, este nefasto
-  ser aterroriza a cidade cibernética com uma série de atos de violência
-  e atrocidades.
+    Depois de derrotar seu primeiro inimigo, Adam sentiu um misto de emoções.
+    A adrenalina corria por suas veias, mas ao mesmo tempo, ele se perguntava 
+    se estava preparado para o próximo desafio...
 </h3>
 
 <div class="display">
@@ -35,7 +24,7 @@ Próximo
   </div>
   
   <div id="imgInimigo">
-    <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo">
+    <img class="inmg" src="./images/inimigo2.gif" alt="Inimigo">
   </div>
 </div>
 
@@ -49,7 +38,6 @@ Próximo
 </div>
 </div>
 
-
 <p class="back">‎</p>
 </div>
 
@@ -57,7 +45,7 @@ Próximo
 
 button.but {
   font-size: 18px;
-  background-color: rgba(255, 0, 191, 0.581);
+  background-color: #3da168;
   outline: none;
   transition: 300ms;
   cursor: pointer;
@@ -78,7 +66,7 @@ button.but {
     height: 200px;
     margin-left: 150%;
     margin-right: 150%;
-    margin-top: 10%;
+    margin-top: 18%;
   }
 
   .container{
@@ -102,7 +90,7 @@ button.but {
 
  .txt2{
   font-size: 60px;
-  color: rgb(116, 19, 207);
+  color: #0093f5;
   text-shadow: #333 2px 2px 2px;
   margin: 0;
   }
@@ -117,7 +105,7 @@ button.but {
 
   .ataquenome{
     margin: 20px;
-    color:rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
   }
 
 </style>

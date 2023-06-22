@@ -36,6 +36,7 @@ Próximo
 <style>
     .adamimg{
         margin-top: -80px;
+        animation: fadeInText 1s;
     }
     
     .cont{

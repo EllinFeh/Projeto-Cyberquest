@@ -6,10 +6,10 @@
     import Ajuda from './Ajuda.svelte'
 	import Historia1 from './Historia1.svelte'
 	import Historia2 from './Historia2.svelte'
-	import FirstBattle from '../public/batalhas/FirstBattle.svelte'
-	import SecondBattle from '../public/batalhas/SecondBattle.svelte'
-	import ThirdBattle from '../public/batalhas/ThirdBattle.svelte'
-	import FourthBattle from '../public/batalhas/FourthBattle.svelte'
+	import FirstBattle from './batalhas/FirstBattle.svelte'
+	import SecondBattle from './batalhas/SecondBattle.svelte'
+	import ThirdBattle from './batalhas/ThirdBattle.svelte'
+	import FourthBattle from './batalhas/FourthBattle.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from './Estado.js'

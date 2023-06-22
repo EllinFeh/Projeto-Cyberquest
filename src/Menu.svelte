@@ -27,6 +27,8 @@
     var audio2= new Audio();
     audio2.src ="/audio/effecttwo.mp3"
 
+    var audio3= new Audio();
+    audio3.src ="/audio/attack.mp3"
   </script>
    
 

@@ -10,6 +10,7 @@
 	import SecondBattle from './batalhas/SecondBattle.svelte'
 	import ThirdBattle from './batalhas/ThirdBattle.svelte'
 	import FourthBattle from './batalhas/FourthBattle.svelte'
+	import IniciarBatalha1 from './IniciarBatalha1.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from './Estado.js'
@@ -37,4 +38,6 @@
 	<ThirdBattle/>
 {:else if $estado === 'fourthbattle'}
 	<FourthBattle/>
+{:else if $estado === 'iniciarbatalha1'}
+	<IniciarBatalha1/>
 {/if}

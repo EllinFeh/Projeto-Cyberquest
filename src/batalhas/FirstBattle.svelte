@@ -2,59 +2,90 @@
   import { trocarEstadoDoJogo } from "../Estado";
 </script>
 
+<audio autoplay loop src="./audio/batalha1.mp3"></audio>
+
 <main>
+  
   <div
     class="container-page"
     style="background-image: url(/images/fundos/Fundobatle1.png);"
   >
+  <div class="black">
+
     <button
-      onmouseenter="audio1.play();"
-      onmouseleave="audio2.play();"
-      class="menu"
-      on:click={() => trocarEstadoDoJogo("secondbattle")}
+    onmouseenter="audio1.play();"
+    onmouseleave="audio2.play();"
+    class="menu"
+    on:click={() => trocarEstadoDoJogo("secondbattle")}
     >
-      Próximo
-    </button>
+    Próximo
+  </button>
+  
+  <h1 class="txt2">Batalha</h1>
 
-    <h1 class="txt2">Batalha</h1>
+    
+  <div>
+    <div class="box" id="imgAdam">
 
-    <div>
-      <div class="box" id="imgAdam">
-        <img class="adamimg" src="./images/adam.gif" alt="Adam" />
+      <div class="barra"> 
+        <div>
+          <p class="hp">HP</p>
+        </div>
       </div>
 
-      <div class="box" id="imgInimigo">
-        <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
+      <div class="barra2"> 
+        <div>
+         
+        </div>
       </div>
+
+      <img class="adamimg" src="./images/adam.gif" alt="Adam" />
     </div>
+    
+    <div class="box" id="imgInimigo">
+        <div class="barra">
+          <div>
+            <p class="hp">HP</p>
+        </div>
+      </div>
 
-    <div class="box">
+      <div class="barra2"> 
+        <div>
+         
+        </div>
+      </div>
+
+      <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
+    </div>
+  </div>
+  
+  <div class="box">
       <h2 class="txt3">Escolha um ataque:</h2>
 
       <div class="container">
         <div class="item tooltip">
           <span class="tooltiptext">Dispara três foguetes em sequência</span>
           <button class="but" onclick="audio3.play();"
-            ><p class="ataquenome">Mongoose</p></button
+          ><p class="ataquenome">Mongoose</p></button
           >
         </div>
-
+        
         <div class="item tooltip">
           <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
           <button class="but" onclick="audio3.play();"
-            ><p class="ataquenome">Massacre</p></button
+          ><p class="ataquenome">Massacre</p></button
           >
         </div>
-
+        
         <div class="item tooltip">
           <span class="tooltiptext">Constroi uma estaçao de cura</span>
           <button class="but" onclick="audio3.play();"
-            ><p class="ataquenome">Thrasher</p></button
+          ><p class="ataquenome">Thrasher</p></button
           >
         </div>
       </div>
     </div>
-
+    
     <div class="box">
       <h2 class="txt3">Ataques do seu inimigo:</h2>
 
@@ -63,33 +94,76 @@
           <span class="tooltiptext">????????</span>
           <button class="but2" onclick="audio3.play();">
             <p class="ataquenome">Frenesi</p></button
-          >
+            >
+          </div>
+          
+          <div class="item tooltip">
+            <span class="tooltiptext">????????</span>
+            <button class="but2" onclick="audio3.play();">
+              <p class="ataquenome">Returnd</p></button
+              >
+            </div>
+            
+            <div class="item tooltip">
+              <span class="tooltiptext">????????</span>
+              <button class="but2" onclick="audio3.play();">
+                <p class="ataquenome">Flurry</p></button
+                >
+              </div>
+            </div>
+          </div>
+          
+          <p class="back">‎</p>
         </div>
-
-        <div class="item tooltip">
-          <span class="tooltiptext">????????</span>
-          <button class="but2" onclick="audio3.play();">
-            <p class="ataquenome">Returnd</p></button
-          >
-        </div>
-
-        <div class="item tooltip">
-          <span class="tooltiptext">????????</span>
-          <button class="but2" onclick="audio3.play();">
-            <p class="ataquenome">Flurry</p></button
-          >
-        </div>
-      </div>
-    </div>
-
-    <p class="back">‎</p>
   </div>
 </main>
 
 <style>
+
+  .barra{
+    width: 290px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: #333;
+    margin: 0 auto;
+    border: 1.8px solid rgb(0, 0, 0, 0.7);
+    margin-bottom: 5px;
+  }
+
+  .barra div{
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(250, 0, 0);
+    width: 90%;
+  }
+
+  .barra2{
+    width: 240px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #333;
+    margin: 0 auto;
+    border: 1.8px solid rgb(0, 0, 0, 0.7);
+    margin-bottom: 5px;
+  }
+
+  .barra2 div{
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(221, 221, 221);
+    width: 100%;
+  }
+
+
   .container-page {
     animation: fadeInText 5s;
   }
+  
+  .black{
+    background-color:rgba(8, 8, 8, 0.503);
+    
+    }
+
 
   button {
     font-size: 18px;
@@ -97,7 +171,7 @@
     transition: 290ms;
     cursor: pointer;
     border: none;
-    padding: 10px;
+    padding: 5px;
     margin-top: 15px;
     margin-bottom: 15px;
     animation: fadeInText 5s;
@@ -138,7 +212,7 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 20px;
-    margin: 20px;
+    margin: 70px;
   }
 
   .item {
@@ -150,7 +224,16 @@
     color: #3d7bff;
     text-shadow: #333 2px 2px 2px;
     margin: 0;
+    margin-bottom: 50px;
     animation: fadeInText 5s;
+  }
+
+  .hp{
+    font: pixel;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    margin: 0 auto;
   }
 
   @keyframes fadeInText {
@@ -172,7 +255,7 @@
   }
 
   .ataquenome {
-    margin: 20px;
+    margin: 10px;
     color: rgb(255, 255, 255);
     animation: fadeInText 5s;
   }

@@ -29,6 +29,16 @@
 
     var audio3= new Audio();
     audio3.src ="/audio/attack.mp3"
+
+    var spray= new Audio();
+    spray.src ="/audio/spraytransfer.mp3"
+
+    var trirocket= new Audio();
+    trirocket.src ="/audio/trirocket.mp3"
+
+    var medbay= new Audio();
+    medbay.src ="/audio/medbay.mp3"
+
   </script>
    
 

@@ -47,7 +47,7 @@ Próximo
 
     .vh{
       margin: 0;
-      margin-right: 50px;
+      margin-right: 200px;
       margin-left: -100px;
     }
 

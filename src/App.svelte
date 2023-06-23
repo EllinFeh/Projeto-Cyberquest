@@ -6,14 +6,17 @@
     import Ajuda from './Ajuda.svelte'
 	import Historia1 from './Historia1.svelte'
 	import Historia2 from './Historia2.svelte'
+	import Historia3 from './Historia3.svelte'
 	import FirstBattle from './batalhas/FirstBattle.svelte'
 	import SecondBattle from './batalhas/SecondBattle.svelte'
 	import ThirdBattle from './batalhas/ThirdBattle.svelte'
 	import FourthBattle from './batalhas/FourthBattle.svelte'
 	import IniciarBatalha1 from './IniciarBatalha1.svelte'
+	import IniciarBatalha2 from './IniciarBatalha2.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from './Estado.js'
+
 </script>
 
 <!-- o jogo tem três estados menu, jogar e sobre, cada um representa uma tela diferente para o usuário -->
@@ -30,6 +33,8 @@
 	<Historia1/>
 {:else if $estado === 'historia2'}
 	<Historia2/>
+{:else if $estado === 'historia3'}
+	<Historia3/>
 {:else if $estado === 'firstbattle'}
 	<FirstBattle/>
 {:else if $estado === 'secondbattle'}
@@ -40,4 +45,7 @@
 	<FourthBattle/>
 {:else if $estado === 'iniciarbatalha1'}
 	<IniciarBatalha1/>
+{:else if $estado === 'iniciarbatalha2'}
+	<IniciarBatalha2/>
+
 {/if}

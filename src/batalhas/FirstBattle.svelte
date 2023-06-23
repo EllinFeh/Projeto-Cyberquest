@@ -16,12 +16,12 @@
     onmouseenter="audio1.play();"
     onmouseleave="audio2.play();"
     class="menu"
-    on:click={() => trocarEstadoDoJogo("secondbattle")}
+    on:click={() => trocarEstadoDoJogo("historia3")}
     >
     Próximo
   </button>
   
-  <h1 class="txt2">Batalha</h1>
+  <h1 class="txt2">Adam vs Morgred</h1>
 
     
   <div>
@@ -38,7 +38,7 @@
          
         </div>
       </div>
-
+      <p class="presetname">Adam</p>
       <img class="adamimg" src="./images/adam.gif" alt="Adam" />
     </div>
     
@@ -54,7 +54,7 @@
          
         </div>
       </div>
-
+      <p class="presetname">Morgred</p>
       <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
     </div>
   </div>
@@ -65,22 +65,22 @@
       <div class="container">
         <div class="item tooltip">
           <span class="tooltiptext">Dispara três foguetes em sequência</span>
-          <button class="but" onclick="audio3.play();"
-          ><p class="ataquenome">Mongoose</p></button
+          <button class="but" onclick="trirocket.play();"
+          ><p class="ataquenome">Tri-Rocket</p></button
           >
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
-          <button class="but" onclick="audio3.play();"
-          ><p class="ataquenome">Massacre</p></button
+          <button class="but" onclick="spray.play();"
+          ><p class="ataquenome">SprayTransfer</p></button
           >
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Constroi uma estaçao de cura</span>
-          <button class="but" onclick="audio3.play();"
-          ><p class="ataquenome">Thrasher</p></button
+          <button class="but" onclick="medbay.play();"
+          ><p class="ataquenome">MedBay</p></button
           >
         </div>
       </div>
@@ -128,13 +128,15 @@
     margin: 0 auto;
     border: 1.8px solid rgb(0, 0, 0, 0.7);
     margin-bottom: 5px;
+    animation: fadeInText 5s;
   }
 
   .barra div{
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
-    width: 90%;
+    width: 100%;
+    animation: fadeInText 5s;
   }
 
   .barra2{
@@ -145,6 +147,8 @@
     margin: 0 auto;
     border: 1.8px solid rgb(0, 0, 0, 0.7);
     margin-bottom: 5px;
+    animation: fadeInText 5s;
+    transition: 500ms;
   }
 
   .barra2 div{
@@ -152,6 +156,8 @@
     border-radius: 10px;
     background-color: rgb(221, 221, 221);
     width: 100%;
+    animation: fadeInText 5s;
+    transition: 500ms;
   }
 
 
@@ -161,7 +167,6 @@
   
   .black{
     background-color:rgba(8, 8, 8, 0.503);
-    
     }
 
 
@@ -172,17 +177,30 @@
     cursor: pointer;
     border: none;
     padding: 5px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     animation: fadeInText 5s;
   }
 
   .but {
     background-color: #3d7bff;
+    animation: fadeInText 5s;
   }
 
   .but2 {
-    background-color: #00421c;
+    background-color: #008638;
+    animation: fadeInText 5s;
+  }
+
+  .presetname{
+    color: #ffffff;
+    padding: 0.5em;
+    margin-left: 14em;
+    margin-right: 14em;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-shadow: #151515 2px 2px 2px;
+    animation: fadeInText 5s;
   }
 
   .adamimg {
@@ -201,18 +219,20 @@
   .box {
     float: left;
     width: 50%;
-    height: 220px;
+    height: 300px;
     border-radius: 5px;
     box-shadow: 0px 0px 0px black;
     overflow: hidden;
+    animation: fadeInText 5s;
   }
 
   .container {
     display: flex;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.425);
     border-radius: 20px;
     margin: 70px;
+
   }
 
   .item {
@@ -222,7 +242,7 @@
   .txt2 {
     font-size: 60px;
     color: #3d7bff;
-    text-shadow: #333 2px 2px 2px;
+    text-shadow: #151515 2px 2px 2px;
     margin: 0;
     margin-bottom: 50px;
     animation: fadeInText 5s;
@@ -263,18 +283,19 @@
   .tooltip {
     position: relative;
     display: inline-block;
+
   }
 
   .tooltip .tooltiptext {
     visibility: hidden;
-    width: 120px;
+    width: 200px;
     background-color: black;
     color: #fff;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
-    z-index: 1;
+
   }
 
   .tooltip:hover .tooltiptext {

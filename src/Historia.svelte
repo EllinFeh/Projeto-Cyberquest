@@ -1,28 +1,19 @@
 <script>
-	import VoltarMenu from "./VoltarMenu.svelte";
-	import { estado } from "./Estado.js";
-	import { trocarEstadoDoJogo } from "./Estado.js";
+
+	import Button from "./Componentes/Button.svelte";
 </script>
-
-
-<svelte:head>
-	<link rel="stylesheet" href="/styles/jogar.css" />
-</svelte:head>
 
 <div
 
 class="container-page"
 style="background-image: url(./images/Fundos/historia1.gif);"
 > 
-<VoltarMenu />
-<button
-onmouseenter="audio1.play();"
-onmouseleave="audio2.play();"
-class="menu"
-on:click={() => trocarEstadoDoJogo("historia1")}
->
-Próximo
-</button>
+
+<div class="aling">
+	<Button label="Voltar" estado="menu"/>
+	<Button label="Próximo" estado="historia1"/>
+</div>
+
 <div>
 		<div>
 			<h1>Ano 2077</h1>
@@ -39,5 +30,20 @@ Próximo
 	<p class="back">‎</p>
 	</div>
 
-
 </div>
+
+
+
+
+<style>
+
+	.vh{
+  margin-bottom: 45vh;
+}
+
+.aling{
+	display: flex;
+	justify-content: center;
+}
+
+</style>

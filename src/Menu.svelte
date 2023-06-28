@@ -1,24 +1,17 @@
 <script>
   import { trocarEstadoDoJogo } from "./Estado.js";
+  import Button from "./Componentes/Button.svelte";
 </script>
 
-<svelte:head>
-  <link rel="stylesheet" href="/styles/menu.css" />
-</svelte:head>
 <div class="container-page" style="background-image: url(/images/Fundos/backmenu.gif);">
   <h1>CYBERQUEST</h1>
+
   <div class="align-column">
-    <button onmouseenter="audio1.play();" onmouseleave="audio2.play();" class="menu" on:click={() => trocarEstadoDoJogo("jogar")}>
-      Jogar
-    </button>
+    <Button label="Jogar" estado="jogar"/>
 
-    <button onmouseenter="audio1.play();" onmouseleave="audio2.play();" class="menu" on:click={() => trocarEstadoDoJogo("ajuda")}>
-      Ajuda
-    </button>
+    <Button label="Ajuda" estado="ajuda"/>
 
-    <button onmouseenter="audio1.play();" onmouseleave="audio2.play();" class="menu" on:click={() => trocarEstadoDoJogo("sobre")}>
-      Sobre
-    </button>
+    <Button label="Sobre" estado="sobre"/>
 
   <script>
     var audio1= new Audio();

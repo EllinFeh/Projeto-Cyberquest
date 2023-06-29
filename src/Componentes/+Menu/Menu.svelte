@@ -1,5 +1,5 @@
 <script>
-  import Button from "./Componentes/Button.svelte";
+  import Button from "../Button.svelte";
 </script>
 
 <div class="container-page" style="background-image: url(/images/Fundos/backmenu.gif);">

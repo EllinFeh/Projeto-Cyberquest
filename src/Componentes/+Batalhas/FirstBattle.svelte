@@ -1,6 +1,6 @@
 <script>
-  import { trocarEstadoDoJogo } from "../Estado";
-  import { Adam, Inimigo } from "../personagens/Protagonista"
+  import { trocarEstadoDoJogo } from "../../Estado";
+  import { Adam, Inimigo } from "../../personagens/Protagonista"
  
   const prota = new Adam(100,5,15);
   const enemy = new Inimigo(100,7,5,);

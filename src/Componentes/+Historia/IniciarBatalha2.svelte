@@ -1,5 +1,5 @@
 <script>
-    import { trocarEstadoDoJogo } from "./Estado";
+    import { trocarEstadoDoJogo } from "../../Estado";
 </script>
 
 <main>

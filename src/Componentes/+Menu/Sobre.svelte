@@ -1,5 +1,5 @@
 <script>
-  import VoltarMenu from "./VoltarMenu.svelte";
+  import VoltarMenu from "../VoltarMenu.svelte";
   </script>
 
 <svelte:head>

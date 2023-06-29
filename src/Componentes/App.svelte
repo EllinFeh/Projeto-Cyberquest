@@ -1,21 +1,23 @@
 <script>
 	// importa os componentes que representam os elementos gráficos do jogo
-	import Jogo from './Historia.svelte'
-	import Sobre from './Sobre.svelte'
-	import Menu from './Menu.svelte'
-    import Ajuda from './Ajuda.svelte'
-	import Historia1 from './Historia1.svelte'
-	import Historia2 from './Historia2.svelte'
-	import Historia3 from './Historia3.svelte'
-	import FirstBattle from './batalhas/FirstBattle.svelte'
-	import SecondBattle from './batalhas/SecondBattle.svelte'
-	import ThirdBattle from './batalhas/ThirdBattle.svelte'
-	import FourthBattle from './batalhas/FourthBattle.svelte'
-	import IniciarBatalha1 from './IniciarBatalha1.svelte'
-	import IniciarBatalha2 from './IniciarBatalha2.svelte'
+	import Sobre from './+Menu/Sobre.svelte'
+	import Menu from './+Menu/Menu.svelte'
+    import Ajuda from './+Menu/Ajuda.svelte'
+	
+	import Jogo from './+Historia/Historia.svelte'
+	import Historia1 from './+Historia/Historia1.svelte'
+	import Historia2 from './+Historia/Historia2.svelte'
+	import Historia3 from './+Historia/Historia3.svelte'
+	import IniciarBatalha1 from './+Historia/IniciarBatalha1.svelte'
+	import IniciarBatalha2 from './+Historia/IniciarBatalha2.svelte'
+
+	import FirstBattle from './+Batalhas/FirstBattle.svelte'
+	import SecondBattle from './+Batalhas/SecondBattle.svelte'
+	import ThirdBattle from './+Batalhas/ThirdBattle.svelte'
+	import FourthBattle from './+Batalhas/FourthBattle.svelte'
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
-	import { estado } from './Estado.js'
+	import { estado } from '../Estado'
 
 </script>
 

@@ -1,7 +1,9 @@
 <script>
     import { trocarEstadoDoJogo } from "../Estado";
-    export let label = "My Button";
-    export let estado = "nextstate";
+    export let label = "";
+    export let estado = "";
+    export let styleProp = "";
+    export let song = "";
 </script>
 
 <div>
@@ -9,7 +11,9 @@
         onmouseenter="audio1.play();"
         onmouseleave="audio2.play();"
         class="btn"
+        onclick= {song}
         on:click={() => trocarEstadoDoJogo(estado)}
+        style={styleProp}
     >
         {label}
     </button>

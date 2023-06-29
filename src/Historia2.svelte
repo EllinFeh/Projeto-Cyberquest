@@ -1,5 +1,5 @@
 <script>
-    import { trocarEstadoDoJogo } from "./Estado.js";
+	import Button from "./Componentes/Button.svelte";
 </script>
 
 <div
@@ -7,14 +7,7 @@ class="container-page"
 style="background-image: url(./images/Fundos/historia2.jpg);"
 >
 
-<button
-onmouseenter="audio1.play();"
-onmouseleave="audio2.play();"
-class="menu"
-on:click={() => trocarEstadoDoJogo("iniciarbatalha1")}
->
-Próximo
-</button>
+<Button label="Próximo" estado="iniciarbatalha1"/>
 
 <h1>Adam</h1>
 
@@ -26,7 +19,7 @@ Próximo
     traições, manipulações e segredos ocultos. No entanto, ele perseverou,
     movido por um senso de justiça e pela determinação de trazer paz e segurança
     de volta à Cybercity. <br><br>
-    Agora, Adam luta rigorosamente contra monstros que aterrorizam a cidade...
+    Agora, Adam busca recuperar a paz em Cybercity...
 </h3>
 </div>
 
@@ -34,6 +27,7 @@ Próximo
 </div>
 
 <style>
+
     .adamimg{
         margin-top: -80px;
         animation: fadeInText 1s;
@@ -47,8 +41,8 @@ Próximo
 
     .vh{
       margin: 0;
-      margin-right: 200px;
-      margin-left: -100px;
+      margin-right: 20%;
+      margin-left: -0%;
     }
 
     h1{

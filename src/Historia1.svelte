@@ -1,23 +1,16 @@
 <script>
-	import VoltarMenu from "./VoltarMenu.svelte";
-	import { trocarEstadoDoJogo } from "./Estado.js";
+	import Button from "./Componentes/Button.svelte";
 </script>
 
 <div
 class="container-page"
 style="background-image: url(./images/Fundos/historia2.gif);"
 >
-<button
-onmouseenter="audio1.play();"
-onmouseleave="audio2.play();"
-class="menu"
-on:click={() => trocarEstadoDoJogo("historia2")}
->
-Próximo
-</button>
+
+<Button label="Próximo" estado="historia2"/>
 
 	<h1>Ataques em CyberCity</h1>
-	<h3 class="vh">
+	<h3>
 		Nas ruas movimentadas de uma cidade futurística chamada cybercity, a
 		tecnologia avançada convive com uma sombra sobre seus habitantes.
 		Nos últimos meses, uma série de crimes e ataques misteriosos tem

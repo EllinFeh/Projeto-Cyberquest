@@ -1,5 +1,5 @@
 <script>
-    import { trocarEstadoDoJogo } from "./Estado";
+  import Button from "./Componentes/Button.svelte";
 </script>
 
 
@@ -32,14 +32,7 @@
         </div>
     </div>
     
-    <button
-    onmouseenter="audio1.play();"
-    onclick="audio3.play();"
-    class="menu"
-    on:click={() => trocarEstadoDoJogo("firstbattle")}
-    >
-    INICIAR BATALHA
-</button>
+    <Button styleProp=background-color:#910;color:#ffff;border:none; label="INICIAR BATALHA" estado="firstbattle" song="audio3.play();" />
 
 <p class="back">‎</p>
 </div>
@@ -47,24 +40,6 @@
 </main>
 
 <style>
-
-    button.menu {
-        font-size: 18px;
-        outline: none;
-        transition: 300ms;
-        cursor: pointer;
-        border: none;
-        padding: 20px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        background-color: red;
-        color: white;
-    }
-    
-    button.menu:hover {
-  background-color: rgb(80, 0, 0);
-  cursor: pointer;
-}
 
     .adamimg {
         width: 250px;
@@ -81,7 +56,6 @@
 
     .black{
         background-color:rgba(8, 8, 8, 0.716);
-
     }
 
     .box {
@@ -94,8 +68,8 @@
     }
 
     .txt {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 25%;
+        margin-right: 25%;
         margin-bottom: 1em;
         color: rgb(255, 255, 255);
         text-shadow: #333 2px 2px 2px;

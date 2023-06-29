@@ -1,5 +1,4 @@
 <script>
-  import { trocarEstadoDoJogo } from "./Estado.js";
   import Button from "./Componentes/Button.svelte";
 </script>
 

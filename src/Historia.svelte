@@ -1,5 +1,4 @@
 <script>
-
 	import Button from "./Componentes/Button.svelte";
 </script>
 
@@ -9,12 +8,13 @@ class="container-page"
 style="background-image: url(./images/Fundos/historia1.gif);"
 > 
 
-<div class="aling">
-	<Button label="Voltar" estado="menu"/>
-	<Button label="Próximo" estado="historia1"/>
-</div>
-
-<div>
+<div class="black">
+	<div class="aling">
+		<Button label="Voltar" estado="menu"/>
+		<Button label="Próximo" estado="historia1"/>
+	</div>
+	
+	<div>
 		<div>
 			<h1>Ano 2077</h1>
 			<h3 class="vh">
@@ -26,16 +26,23 @@ style="background-image: url(./images/Fundos/historia1.gif);"
 				acordo com as preferências pessoais de cada indivíduo.
 			</h3>
 		</div>
-
-	<p class="back">‎</p>
+		
+		<p class="back">‎</p>
 	</div>
 
 </div>
-
-
+	
+</div>
 
 
 <style>
+	h1 {
+		margin-top: 1em;
+}
+
+	.black{
+        background-color:rgba(8, 8, 8, 0.5);
+    }
 
 	.vh{
   margin-bottom: 45vh;

@@ -1,5 +1,10 @@
 <script>
   import { trocarEstadoDoJogo } from "../Estado";
+  import { Adam, Inimigo } from "../personagens/Protagonista"
+ 
+  const prota = new Adam(100,5,15);
+  const enemy = new Inimigo(100,7,5,);
+
 </script>
 
 <audio autoplay loop src="./audio/batalha1.mp3"></audio>
@@ -65,21 +70,21 @@
       <div class="container">
         <div class="item tooltip">
           <span class="tooltiptext">Dispara três foguetes em sequência</span>
-          <button class="but" onclick="trirocket.play();"
+          <button class="but" on:click={prota.trirocket}
           ><p class="ataquenome">Tri-Rocket</p></button
           >
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
-          <button class="but" onclick="spray.play();"
+          <button class="but" on:click={prota.spraytransfer}
           ><p class="ataquenome">SprayTransfer</p></button
           >
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Constroi uma estaçao de cura</span>
-          <button class="but" onclick="medbay.play();"
+          <button class="but" on:click={prota.medbay}
           ><p class="ataquenome">MedBay</p></button
           >
         </div>
@@ -138,28 +143,6 @@
     width: 100%;
     animation: fadeInText 5s;
   }
-
-  .barra2{
-    width: 240px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #333;
-    margin: 0 auto;
-    border: 1.8px solid rgb(0, 0, 0, 0.7);
-    margin-bottom: 5px;
-    animation: fadeInText 5s;
-    transition: 500ms;
-  }
-
-  .barra2 div{
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgb(221, 221, 221);
-    width: 100%;
-    animation: fadeInText 5s;
-    transition: 500ms;
-  }
-
 
   .container-page {
     animation: fadeInText 5s;

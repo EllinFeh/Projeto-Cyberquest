@@ -6,9 +6,10 @@
 class="container-page"
 style="background-image: url(./images/Fundos/historia2.gif);"
 >
+<div class="black">
 
-<Button label="Próximo" estado="historia2"/>
-
+	<Button label="Próximo" estado="historia2"/>
+	
 	<h1>Ataques em CyberCity</h1>
 	<h3>
 		Nas ruas movimentadas de uma cidade futurística chamada cybercity, a
@@ -24,3 +25,10 @@ style="background-image: url(./images/Fundos/historia2.gif);"
 	
 	<p class="back">‎</p>
 </div>
+</div>
+
+<style>
+	.black{
+        background-color:rgba(8, 8, 8, 0.5);
+    }
+</style>

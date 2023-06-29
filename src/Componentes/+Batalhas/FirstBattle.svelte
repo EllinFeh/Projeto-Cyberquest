@@ -23,7 +23,7 @@
     class="menu"
     on:click={() => trocarEstadoDoJogo("historia3")}
     >
-    Próximo
+    Próximo (provisorio)
   </button>
   
   <h1 class="txt2">Adam vs Morgred</h1>

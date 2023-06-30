@@ -4,13 +4,20 @@
     //export let estado = "";
     export let styleProp = "";
     export let song = "";
+    import { textoExibido, mostrarCont } from '../personagens/store';
 
-function oi(){
-console.log("prra")
+function exibirTexto() {
+  textoExibido.set('Você Atacou! Vez do seu inimigo!');
+  mostrarCont.set(false);
+
+  setTimeout(() => {
+      textoExibido.set('');
+      mostrarCont.set(true);
+    }, 8000);
+
 }
-
+  
 </script>
-
 
 <div>
     <button
@@ -18,6 +25,7 @@ console.log("prra")
         class="btn"
         onclick= {song}
         on:click={func}
+        on:click={exibirTexto}
         style={styleProp}
     >
         {label}
@@ -25,6 +33,8 @@ console.log("prra")
 </div>
 
 <style>
+
+    
     .btn {
         color: #fff;
         background-color: rgb(218, 0, 0);

@@ -2,22 +2,25 @@
   import { trocarEstadoDoJogo } from "../../Estado";
   import { Adam, Inimigo,} from "../../personagens/Protagonista"
   import AtaqButton from "../AtaqButton.svelte";
+  import { textoExibido,mostrarCont } from '../../personagens/store';
  
   const prota = new Adam(100,5,15);
   const enemy = new Inimigo(200,7,5,);
 
 </script>
 
+
+
 <audio autoplay loop src="./audio/batalha1.mp3"></audio>
 
 <main>
   
   <div
-    class="container-page"
-    style="background-image: url(/images/fundos/Fundobatle1.png);"
+  class="container-page"
+  style="background-image: url(/images/fundos/Fundobatle1.png);"
   >
   <div class="black">
-
+    
     <button
     onmouseenter="audio1.play();"
     onmouseleave="audio2.play();"
@@ -28,68 +31,77 @@
   </button>
   
   <h1 class="txt2">CYBERTRON</h1>
-
-    
+  
   <div>
     <div class="box" id="imgAdam">
-
+      
       <div class="hpadam"> 
         <div>
           <p class="hp"> {prota.hp} </p>
         </div>
       </div>
-
+      
       <p class="presetname">Adam</p>
       <img class="adamimg" src="./images/adam.gif" alt="Adam" />
     </div>
     
     <div class="box" id="imgInimigo">
-        <div class="hpini">
-          <div>
-            <p class="hp"> {enemy.hp} </p>
+      <div class="hpini">
+        <div>
+          <p class="hp"> {enemy.hp} </p>
         </div>
       </div>
-
+      
       <p class="presetname">Morgred</p>
       <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
     </div>
   </div>
   
   <div>
-      <h2 class="txt3">Escolha um ataque:</h2>
+    
+    <p>{$textoExibido}</p>
 
-      <div class="container">
-        <div class="item tooltip">
-          <span class="tooltiptext">Dispara três foguetes em sequência</span>
-          
-          <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={prota.trirocket}/>
+    {#if $mostrarCont}
+    <h2 class="txt3">Escolha um ataque:</h2>
+    <div class="container">
+      <div>
+      </div>
 
-        </div>
+
+      <div class="item tooltip">
+        <span class="tooltiptext">Dispara três foguetes em sequência</span>
         
-        <div class="item tooltip">
-          <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
-          
-          <AtaqButton styleProp=background-color:#3b79fe; label="SPRAYTRANSFER" func={prota.spraytransfer}/>
-
-        </div>
+        <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={prota.trirocket}/>
         
-        <div class="item tooltip">
-          <span class="tooltiptext">Constroi uma estaçao de cura</span>
-         
-          <AtaqButton styleProp=background-color:#3b79fe; label="MEDBAY" func={prota.medbay}/>
-
-        </div>
+      </div>
+      
+      <div class="item tooltip">
+        <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
+        
+        <AtaqButton styleProp=background-color:#3b79fe; label="SPRAYTRANSFER" func={prota.spraytransfer}/>
+        
+      </div>
+      
+      <div class="item tooltip">
+        <span class="tooltiptext">Constroi uma estaçao de cura</span>
+        
+        <AtaqButton styleProp=background-color:#3b79fe; label="MEDBAY" func={prota.medbay}/>
+        
       </div>
     </div>
-          
-          <p class="back">‎</p>
+    {/if};
+
+    </div>
+    
+    <p class="back">‎</p>
         </div>
-  </div>
-</main>
-
-<style>
-
-  .hpadam,.hpini{
+      </div>
+    </main>
+    
+    <style>
+      
+      
+      .hpadam,.hpini{
     width: 290px;
     height: 15px;
     border-radius: 10px;
@@ -148,6 +160,13 @@
     height: 160px;
     animation: fadeInText 5s;
     margin-top: 30px;
+  }
+
+  p{
+    color: #ffffff;
+    text-shadow: #151515 2px 2px 2px;
+    font-size: 25px;
+    text-align: center;
   }
 
   .box {

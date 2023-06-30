@@ -27,7 +27,6 @@ export class Adam extends personagem{
 }
 
 
-
 export class Inimigo extends personagem{
     constructor(hp,def,atq){
         super(hp,def,atq);

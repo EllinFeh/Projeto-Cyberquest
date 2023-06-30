@@ -9,20 +9,24 @@ class personagem{
 export class Adam extends personagem{
     constructor(hp,def,atq,){
         super(hp,def,atq);
-      
     }
+    
     trirocket(ObjAtacado){
-        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def)
-        console.log ("trirocket foi usado!")
+        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def);
+        console.log ("trirocket foi usado!");
     }
+    
     spraytransfer(ObjAtacado){
         ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
         console.log ("spraytransfer foi usado!")
     }
+    
     medbay(){
-        return 70
+        return 70; 
     }
 }
+
+
 
 export class Inimigo extends personagem{
     constructor(hp,def,atq){

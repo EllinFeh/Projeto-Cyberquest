@@ -1,9 +1,10 @@
 <script>
   import { trocarEstadoDoJogo } from "../../Estado";
-  import { Adam, Inimigo } from "../../personagens/Protagonista"
+  import { Adam, Inimigo,} from "../../personagens/Protagonista"
+  import AtaqButton from "../AtaqButton.svelte";
  
   const prota = new Adam(100,5,15);
-  const enemy = new Inimigo(100,7,5,);
+  const enemy = new Inimigo(200,7,5,);
 
 </script>
 
@@ -26,97 +27,60 @@
     Próximo (provisorio)
   </button>
   
-  <h1 class="txt2">Adam vs Morgred</h1>
+  <h1 class="txt2">CYBERTRON</h1>
 
     
   <div>
     <div class="box" id="imgAdam">
 
-      <div class="barra"> 
+      <div class="hpadam"> 
         <div>
-          <p class="hp">HP</p>
+          <p class="hp">{prota.hp}</p>
         </div>
       </div>
 
-      <div class="barra2"> 
-        <div>
-         
-        </div>
-      </div>
       <p class="presetname">Adam</p>
       <img class="adamimg" src="./images/adam.gif" alt="Adam" />
     </div>
     
     <div class="box" id="imgInimigo">
-        <div class="barra">
+        <div class="hpini">
           <div>
-            <p class="hp">HP</p>
+            <p class="hp">{enemy.hp}</p>
         </div>
       </div>
 
-      <div class="barra2"> 
-        <div>
-         
-        </div>
-      </div>
       <p class="presetname">Morgred</p>
       <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
     </div>
   </div>
   
-  <div class="box">
+  <div>
       <h2 class="txt3">Escolha um ataque:</h2>
 
       <div class="container">
         <div class="item tooltip">
           <span class="tooltiptext">Dispara três foguetes em sequência</span>
-          <button class="but" on:click={prota.trirocket}
-          ><p class="ataquenome">Tri-Rocket</p></button
-          >
+          
+          <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={prota.trirocket}/>
+
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
-          <button class="but" on:click={prota.spraytransfer}
-          ><p class="ataquenome">SprayTransfer</p></button
-          >
+          
+          <AtaqButton styleProp=background-color:#3b79fe; label="SPRAYTRANSFER" func={prota.spraytransfer}/>
+
         </div>
         
         <div class="item tooltip">
           <span class="tooltiptext">Constroi uma estaçao de cura</span>
-          <button class="but" on:click={prota.medbay}
-          ><p class="ataquenome">MedBay</p></button
-          >
+         
+          <AtaqButton styleProp=background-color:#3b79fe; label="MEDBAY" func={prota.medbay}/>
+
         </div>
       </div>
     </div>
-    
-    <div class="box">
-      <h2 class="txt3">Ataques do seu inimigo:</h2>
-
-      <div class="container">
-        <div class="item tooltip">
-          <span class="tooltiptext">????????</span>
-          <button class="but2" onclick="audio3.play();">
-            <p class="ataquenome">Frenesi</p></button
-            >
-          </div>
-          
-          <div class="item tooltip">
-            <span class="tooltiptext">????????</span>
-            <button class="but2" onclick="audio3.play();">
-              <p class="ataquenome">Returnd</p></button
-              >
-            </div>
-            
-            <div class="item tooltip">
-              <span class="tooltiptext">????????</span>
-              <button class="but2" onclick="audio3.play();">
-                <p class="ataquenome">Flurry</p></button
-                >
-              </div>
-            </div>
-          </div>
           
           <p class="back">‎</p>
         </div>
@@ -125,7 +89,7 @@
 
 <style>
 
-  .barra{
+  .hpadam,.hpini{
     width: 290px;
     height: 15px;
     border-radius: 10px;
@@ -136,7 +100,16 @@
     animation: fadeInText 5s;
   }
 
-  .barra div{
+
+  .hpadam div{
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(250, 0, 0);
+    width: 100%;
+    animation: fadeInText 5s;
+  }
+
+  .hpini div{
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
@@ -149,31 +122,9 @@
   }
   
   .black{
-    background-color:rgba(8, 8, 8, 0.503);
+    background-color:rgba(8, 8, 8, 0.7);
     }
 
-
-  button {
-    font-size: 18px;
-    outline: none;
-    transition: 290ms;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    animation: fadeInText 5s;
-  }
-
-  .but {
-    background-color: #3d7bff;
-    animation: fadeInText 5s;
-  }
-
-  .but2 {
-    background-color: #008638;
-    animation: fadeInText 5s;
-  }
 
   .presetname{
     color: #ffffff;
@@ -211,26 +162,20 @@
 
   .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.425);
-    border-radius: 20px;
-    margin: 70px;
-
+    border-radius: 1em;
+    margin: 0 20%;
   }
+
 
   .item {
-    width: 80%;
+    flex-grow: 1;
+    display: flex;
   }
 
-  .txt2 {
-    font-size: 60px;
-    color: #3d7bff;
-    text-shadow: #151515 2px 2px 2px;
-    margin: 0;
-    margin-bottom: 50px;
-    animation: fadeInText 5s;
-  }
-
+  
   .hp{
     font: pixel;
     text-align: center;
@@ -238,7 +183,7 @@
     font-size: 15px;
     margin: 0 auto;
   }
-
+  
   @keyframes fadeInText {
     from {
       opacity: 0;
@@ -246,6 +191,15 @@
     to {
       opacity: 1;
     }
+  }
+  
+  .txt2 {
+    font-size: 45px;
+    color: #3b79fe;
+    text-shadow: #151515 2px 2px 2px;
+    margin: 0;
+    margin-bottom: 1.5em;
+    animation: fadeInText 5s;
   }
 
   .txt3 {
@@ -257,11 +211,6 @@
     animation: fadeInText 5s;
   }
 
-  .ataquenome {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    animation: fadeInText 5s;
-  }
 
   .tooltip {
     position: relative;

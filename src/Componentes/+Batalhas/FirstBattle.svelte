@@ -34,7 +34,7 @@
 
       <div class="barra"> 
         <div>
-          <p class="hp">HP</p>
+          <p class="hp"> {prota.hp} </p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@
     <div class="box" id="imgInimigo">
         <div class="barra">
           <div>
-            <p class="hp">HP</p>
+            <p class="hp"> {enemy.hp} </p>
         </div>
       </div>
 

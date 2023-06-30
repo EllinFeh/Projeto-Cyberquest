@@ -12,11 +12,11 @@ export class Adam extends personagem{
       
     }
     trirocket(ObjAtacado){
-        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def)
+        ObjAtacado.hp = ObjAtacado.hp - ((Adam.atq) - ObjAtacado.def)
         console.log ("trirocket foi usado!")
     }
     spraytransfer(ObjAtacado){
-        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
+        ObjAtacado.hp = ObjAtacado.hp - ((Adam.atq * 2) - ObjAtacado.def)
         console.log ("spraytransfer foi usado!")
     }
     medbay(){

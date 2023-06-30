@@ -15,8 +15,8 @@
         <h1 class="txt2">Adam vence Morgred</h1>
         <div>
             <h3 class="txt">
-                Adam, o destemido herói, conseguiu derrotar Morgred, o vilão mais temido de todos os 
-                tempos. No entanto, Adam não fazia ideia de que a linhagem de Morgred era vasta e que
+                Adam, o destemido herói, conseguiu derrotar. No entanto, Adam não fazia ideia 
+                de que a linhagem de Morgred era vasta e que
                  a batalha contra o mal estava longe de terminar. <br>
                 Logo após a derrota de Morgred, as sombras da escuridão começaram a
                 se espalhar por toda a cidade de Cybercity. Um novo inimigo surgiu, 

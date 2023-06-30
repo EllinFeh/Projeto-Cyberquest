@@ -17,7 +17,7 @@ export class Adam extends personagem{
     }
     
     spraytransfer(ObjAtacado){
-        ObjAtacado.hp = ObjAtacado.hp - ((this.ataque * 2) - ObjAtacado.def)
+        ObjAtacado.hp = ObjAtacado.hp - ((Adam.atq * 2) - ObjAtacado.def)
         console.log ("spraytransfer foi usado!")
     }
     

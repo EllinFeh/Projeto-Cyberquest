@@ -35,7 +35,7 @@
 
       <div class="hpadam"> 
         <div>
-          <p class="hp">{prota.hp}</p>
+          <p class="hp"> {prota.hp} </p>
         </div>
       </div>
 
@@ -46,7 +46,7 @@
     <div class="box" id="imgInimigo">
         <div class="hpini">
           <div>
-            <p class="hp">{enemy.hp}</p>
+            <p class="hp"> {enemy.hp} </p>
         </div>
       </div>
 

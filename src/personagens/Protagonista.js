@@ -63,15 +63,16 @@ export class Adam extends personagem{
     medbay(){
         let dado3 = Math.floor(Math.random() * 15)
         if (dado3 >= 7) {
-        Adam.hp =+ 70; 
-        textoExibido.set('Você se curou! Vez do seu inimigo!');
-        mostrarCont.set(false);
-
-        setTimeout(() => {
-           textoExibido.set('');
-           mostrarCont.set(true);
-         }, 8000);
+            textoExibido.set('Você se curou! Vez do seu inimigo!');
+            mostrarCont.set(false);
+            
+            setTimeout(() => {
+                textoExibido.set('');
+                mostrarCont.set(true);
+            }, 8000);
+            return 70; 
         }
+
         else{
             textoExibido.set('Medbay Falhou! Vez do seu inimigo!');
             mostrarCont.set(false);

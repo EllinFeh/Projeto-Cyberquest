@@ -1,3 +1,5 @@
+import { textoExibido, mostrarCont } from "./store";
+
 class personagem{
     constructor(hp,def,atq,){
         this.hp = hp;
@@ -15,10 +17,23 @@ export class Adam extends personagem{
         let dado1 = Math.floor(Math.random() * 15)
         if (dado1 >= 4) {
           ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def);
-          console.log ("trirocket foi usado!");
+         //console.log ("trirocket foi usado!");
+          textoExibido.set('Você usou Trirocket! Vez do seu inimigo!');
+         mostrarCont.set(false);
+
+         setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 8000);
         }
         else{
-            console.log ("você errou!");
+            textoExibido.set('Você errou! Vez do seu inimigo!');
+            mostrarCont.set(false);
+   
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
         }
     }
     
@@ -26,20 +41,45 @@ export class Adam extends personagem{
         let dado2 = Math.floor(Math.random() * 15)
         if (dado2 >= 6) {
         ObjAtacado.hp = ObjAtacado.hp - ((Adam.atq * 4.5) - ObjAtacado.def)
-        console.log ("spraytransfer foi usado!")
+        textoExibido.set('Você usou spraytransfer! Vez do seu inimigo!');
+        mostrarCont.set(false);
+
+        setTimeout(() => {
+           textoExibido.set('');
+           mostrarCont.set(true);
+         }, 8000);
         }
         else{
-            console.log ("você errou!");
+            textoExibido.set('Você errou! Vez do seu inimigo!');
+            mostrarCont.set(false);
+   
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
         }
     }
     
     medbay(){
         let dado3 = Math.floor(Math.random() * 15)
         if (dado3 >= 7) {
-        return 70; 
+        Adam.hp =+ 70; 
+        textoExibido.set('Você se curou! Vez do seu inimigo!');
+        mostrarCont.set(false);
+
+        setTimeout(() => {
+           textoExibido.set('');
+           mostrarCont.set(true);
+         }, 8000);
         }
         else{
-            console.log ("você não conseguiu se curar!");
+            textoExibido.set('Medbay Falhou! Vez do seu inimigo!');
+            mostrarCont.set(false);
+   
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
         }
     }
 }

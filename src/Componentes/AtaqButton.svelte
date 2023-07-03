@@ -6,16 +6,6 @@
     export let song = "";
     import { textoExibido, mostrarCont } from '../personagens/store';
 
-function exibirTexto() {
-  textoExibido.set('Você Atacou! Vez do seu inimigo!');
-  mostrarCont.set(false);
-
-  setTimeout(() => {
-      textoExibido.set('');
-      mostrarCont.set(true);
-    }, 8000);
-
-}
   
 </script>
 
@@ -25,7 +15,7 @@ function exibirTexto() {
         class="btn"
         onclick= {song}
         on:click={func}
-        on:click={exibirTexto}
+        on:click={textoExibido}
         style={styleProp}
     >
         {label}

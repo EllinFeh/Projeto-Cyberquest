@@ -16,7 +16,7 @@ export class Adam extends personagem{
     trirocket(ObjAtacado){
         let dado1 = Math.floor(Math.random() * 15)
         if (dado1 >= 4) {
-          ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def);
+          ObjAtacado.hp = ObjAtacado.hp - ((Adam.ataque) - ObjAtacado.def);
           textoExibido.set('Você usou Trirocket! Vez do seu inimigo!');
          mostrarCont.set(false);
 
@@ -89,7 +89,5 @@ export class Inimigo extends personagem{
     constructor(hp,def,atq){
         super(hp,def,atq);
         this.id = "Inimigo";
-
- 
     }
 }

@@ -5,8 +5,8 @@
   import { textoExibido,mostrarCont } from '../../personagens/store';
   import { onMount, afterUpdate} from 'svelte';
  
-  const prota = new Adam(100,5,15);
-  const enemy = new Inimigo(150,7,5);
+  const prota = new Adam(100,6,20);
+  const enemy = new Inimigo(150,7,15);
 
   //barra de vida adam e inimigo:
   const hpMaxAdam = 100;
@@ -35,6 +35,8 @@
     calculateBarWidth();
   });
 
+
+  
 
 </script>
 
@@ -102,21 +104,21 @@
 
 
       <div class="item tooltip">
-        <span class="tooltiptext">Dispara três foguetes em sequência</span>
+        <span class="tooltiptext">Dispara três foguetes em sequência!</span>
         
         <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={prota.trirocket}/>
         
       </div>
       
       <div class="item tooltip">
-        <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
+        <span class="tooltiptext">Rajada de tiros feitos de sucata!</span>
         
         <AtaqButton styleProp=background-color:#3b79fe; label="SPRAYTRANSFER" func={prota.spraytransfer}/>
         
       </div>
       
       <div class="item tooltip">
-        <span class="tooltiptext">Constroi uma estaçao de cura</span>
+        <span class="tooltiptext">Constroi uma estação de cura!</span>
         
         <AtaqButton styleProp=background-color:#3b79fe; label="MEDBAY" func={prota.medbay}/>
         

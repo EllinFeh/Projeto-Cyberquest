@@ -17,7 +17,6 @@ export class Adam extends personagem{
         let dado1 = Math.floor(Math.random() * 15)
         if (dado1 >= 4) {
           ObjAtacado.hp = ObjAtacado.hp - ((this.ataque) - ObjAtacado.def);
-         //console.log ("trirocket foi usado!");
           textoExibido.set('Você usou Trirocket! Vez do seu inimigo!');
          mostrarCont.set(false);
 
@@ -27,7 +26,7 @@ export class Adam extends personagem{
           }, 8000);
         }
         else{
-            textoExibido.set('Você errou! Vez do seu inimigo!');
+            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
             mostrarCont.set(false);
    
             setTimeout(() => {
@@ -50,7 +49,7 @@ export class Adam extends personagem{
          }, 8000);
         }
         else{
-            textoExibido.set('Você errou! Vez do seu inimigo!');
+            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
             mostrarCont.set(false);
    
             setTimeout(() => {
@@ -62,7 +61,7 @@ export class Adam extends personagem{
     
     medbay(){
         let dado3 = Math.floor(Math.random() * 15)
-        if (dado3 >= 7) {
+        if (dado3 >= 8) {
             textoExibido.set('Você se curou! Vez do seu inimigo!');
             mostrarCont.set(false);
             

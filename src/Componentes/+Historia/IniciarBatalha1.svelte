@@ -22,11 +22,21 @@
         </h3>
         
         <div class="">
-            <div class="box" id="imgAdam">
+            <div class="box tooltip" id="imgAdam" >
+                <span class="tooltiptext">ESTATISTICAS INICIAIS: <br>
+                HP: 100<br>
+                DEF: 50<br>
+                -5% DE DANO A FOGO<br>
+                </span>
                 <img class="adamimg" src="./images/adam.gif" alt="Adam" />
             </div>
             
-            <div class="box" id="imgInimigo">
+            <div class="box tooltip" id="imgInimigo">
+                <span class="tooltiptext">ESTATISTICAS: <br>
+                    HP: 150<br>
+                    DEF: 60<br>
+                    IMUNIDADE A LASER<br>
+                    </span>
                 <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
             </div>
         </div>
@@ -61,7 +71,7 @@
     .box {
         float: left;
         width: 50%;
-        height: 220px;
+        height: 300px;
         border-radius: 5px;
         box-shadow: 0px 0px 0px black;
         overflow: hidden;
@@ -94,6 +104,28 @@
             opacity: 1;
         }
     }
+
+    .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
 
 </style>

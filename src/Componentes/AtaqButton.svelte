@@ -4,7 +4,7 @@
     //export let estado = "";
     export let styleProp = "";
     export let song = "";
-    import { textoExibido, mostrarCont } from '../personagens/store';
+    import { textoExibido } from '../personagens/store';
 
   
 </script>
@@ -29,7 +29,7 @@
         color: #fff;
         background-color: rgb(218, 0, 0);
         transition: 300ms;
-        animation: fadeInText 5s;
+        animation: fadeInText 2s;
         font-size: 17px;
         border-style: solid;
         width: 160px;

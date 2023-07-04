@@ -3,9 +3,38 @@
   import { Adam, Inimigo,} from "../../personagens/Protagonista"
   import AtaqButton from "../AtaqButton.svelte";
   import { textoExibido,mostrarCont } from '../../personagens/store';
+  import { onMount, afterUpdate} from 'svelte';
  
   const prota = new Adam(100,5,15);
-  const enemy = new Inimigo(200,7,5,);
+  const enemy = new Inimigo(150,7,5);
+
+  //barra de vida adam e inimigo:
+  const hpMaxAdam = 100;
+  const hpMaxEnemy = 150;
+
+  let barWidth = 100;
+  let barWidthenemy = 100;
+  let hpadam= prota.hp;
+  let hpenemy= enemy.hp;
+
+
+  const attHP = (newHP) => {
+    hp = newHP > hpMax ? hpMax : newHP;
+  };
+
+  const calculateBarWidth = () => {
+    barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
+    barWidth = (hpadam / hpMaxAdam) * 100;
+  };
+
+  onMount(() => {
+    calculateBarWidth();
+  });
+
+  afterUpdate(() => {
+    calculateBarWidth();
+  });
+
 
 </script>
 
@@ -36,8 +65,10 @@
     <div class="box" id="imgAdam">
       
       <div class="hpadam"> 
-        <div>
-          <p class="hp"> {prota.hp} </p>
+        <div style="width: {barWidth}%">
+          <p class="hp"> <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>{hpadam}</p>
         </div>
       </div>
       
@@ -47,8 +78,10 @@
     
     <div class="box" id="imgInimigo">
       <div class="hpini">
-        <div>
-          <p class="hp"> {enemy.hp} </p>
+        <div style="width: {barWidthenemy}%">
+          <p class="hp" > <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>{hpenemy}</p>
         </div>
       </div>
       
@@ -89,7 +122,7 @@
         
       </div>
     </div>
-    {/if};
+    {/if}
 
     </div>
     
@@ -117,20 +150,20 @@
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
-    width: 100%;
     animation: fadeInText 5s;
+    transition: 300ms;
   }
 
   .hpini div{
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
-    width: 100%;
+    transition: 300ms;
     animation: fadeInText 5s;
   }
 
   .container-page {
-    animation: fadeInText 5s;
+    animation: fadeInText 4s;
   }
   
   .black{
@@ -169,6 +202,10 @@
     text-align: center;
   }
 
+  .bi{
+    margin-top: 4%;
+  }
+
   .box {
     float: left;
     width: 50%;
@@ -186,6 +223,7 @@
     background-color: rgba(0, 0, 0, 0.425);
     border-radius: 1em;
     margin: 0 20%;
+    position: relative;
   }
 
 
@@ -198,9 +236,11 @@
   .hp{
     font: pixel;
     text-align: center;
-    color: black;
+    color: rgb(196, 196, 196);
     font-size: 15px;
+    position: absolute;
     margin: 0 auto;
+    margin-left: 130px;
   }
   
   @keyframes fadeInText {
@@ -234,7 +274,6 @@
   .tooltip {
     position: relative;
     display: inline-block;
-
   }
 
   .tooltip .tooltiptext {
@@ -246,7 +285,8 @@
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
-
+    top: -36%;
+    left: 0%;
   }
 
   .tooltip:hover .tooltiptext {

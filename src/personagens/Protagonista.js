@@ -7,7 +7,7 @@ class personagem{
         this.def = def;
         this.atq = atq;
     }
-}
+};
 
 
 export class Adam extends personagem{
@@ -17,60 +17,18 @@ export class Adam extends personagem{
     
     
     trirocket(ObjAtacado){
-        ObjAtacado.hp = ObjAtacado.hp - (this.atq - ObjAtacado.def)
+        ObjAtacado.hp = ObjAtacado.hp - (this.atq - ObjAtacado.def);
     }
     
-    // spraytransfer(Inimigo){
-    //     let dado2 = Math.floor(Math.random() * 15)
-    //     if (dado2 >= 6) {
-    //     Inimigo.hp = Inimigo.hp - ((Adam.atq * 4.5) - Inimigo.def)
-    //     textoExibido.set('Você usou spraytransfer! Vez do seu inimigo!');
-    //     mostrarCont.set(false);
-
-    //     setTimeout(() => {
-    //        textoExibido.set('');
-    //        mostrarCont.set(true);
-    //      }, 8000);
-    //     }
-    //     else{
-    //         textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
-    //         mostrarCont.set(false);
-   
-    //         setTimeout(() => {
-    //            textoExibido.set('');
-    //            mostrarCont.set(true);
-    //          }, 8000);
-    //     }
-    // }
-    
-    medbay(){
-        let dado3 = Math.floor(Math.random() * 15)
-        if (dado3 >= 8) {
-            textoExibido.set('Você se curou! Vez do seu inimigo!');
-            mostrarCont.set(false);
-            
-            setTimeout(() => {
-                textoExibido.set('');
-                mostrarCont.set(true);
-            }, 8000);
-            return 70;
-        }
-
-        else{
-            textoExibido.set('Medbay Falhou! Vez do seu inimigo!');
-            mostrarCont.set(false);
-   
-            setTimeout(() => {
-               textoExibido.set('');
-               mostrarCont.set(true);
-             }, 8000);
-        }
-
-        if(hp > 100){
-
-        }
+    spraytransfer(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - (this.atq * 3 - ObjAtacado.def);
     }
-}
+    
+    medbay(ObjReceptor){
+        ObjReceptor.hp = (ObjReceptor.hp * 2);
+    }
+};
+
 
 
 export class Inimigo extends personagem{
@@ -78,4 +36,4 @@ export class Inimigo extends personagem{
         super(hp,def,atq);
         this.id = "Inimigo";
     }
-}
+};

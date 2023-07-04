@@ -44,7 +44,7 @@
             hpenemy = enemy.hp
             console.log(enemy.hp)
 
-            textoExibido.set('Você acertou o ataque! Vez do seu inimigo!');
+            textoExibido.set('Você usou TriRocket! Vez do seu inimigo!');
             mostrarCont.set(false);
          setTimeout(() => {
             textoExibido.set('');
@@ -61,105 +61,187 @@
              }, 8000);
         }
   }
+
+  function ataque2Prota(){
+    let dado2 = Math.floor(Math.random() * 15)
+        if (dado2 >= 6) {
+        prota.spraytransfer(enemy);
+        hpenemy = enemy.hp;
+        textoExibido.set('Você usou SprayTransfer! Vez do seu inimigo!');
+        mostrarCont.set(false);
+
+        setTimeout(() => {
+           textoExibido.set('');
+           mostrarCont.set(true);
+         }, 8000);
+        }
+        else{
+            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
+            mostrarCont.set(false);
+
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
+        }
+    }
+
+    function ataque3Prota(){
+      let dado3 = Math.floor(Math.random() * 15)
+        if (dado3 >= 8) {
+           prota.medbay(prota);
+           hpadam= prota.hp;
+          textoExibido.set('Você se curou! Vez do seu inimigo!');
+          mostrarCont.set(false);
+            
+            setTimeout(() => {
+                textoExibido.set('');
+                mostrarCont.set(true);
+            }, 8000);
+
+            if(hpadam>=hpMaxAdam){
+              hpadam=hpMaxAdam
+              textoExibido.set('Você tem o HP Maximo! Vez do seu inimigo!');
+            };
+        }
+
+        else{
+            textoExibido.set('Medbay Falhou! Vez do seu inimigo!');
+            mostrarCont.set(false);
+
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
+        }
+
+    }
+    
+  
 </script>
 
-
-
-<audio autoplay loop src="./audio/batalha1.mp3"></audio>
+<audio autoplay loop src="./audio/batalha1.mp3" />
 
 <main>
-  
   <div
-  class="container-page"
-  style="background-image: url(/images/fundos/Fundobatle1.png);"
+    class="container-page"
+    style="background-image: url(/images/fundos/Fundobatle1.png);"
   >
-  <div class="black">
-    
-    <button
-    onmouseenter="audio1.play();"
-    onmouseleave="audio2.play();"
-    class="menu"
-    on:click={() => trocarEstadoDoJogo("historia3")}
-    >
-    Próximo (provisorio)
-  </button>
-  
-  <h1 class="txt2">CYBERTRON</h1>
-  
-  <div>
-    <div class="box" id="imgAdam">
-      
-      <div class="hpadam"> 
-        <div style="width: {barWidth}%">
-          <p class="hp"> <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-          </svg>{hpadam}</p>
+    <div class="black">
+      <button
+        onmouseenter="audio1.play();"
+        onmouseleave="audio2.play();"
+        class="menu"
+        on:click={() => trocarEstadoDoJogo("historia3")}
+      >
+        Próximo (provisorio)
+      </button>
+
+      <h1 class="txt2">CYBERTRON</h1>
+
+      <div>
+        <div class="box" id="imgAdam">
+          <div class="hpadam">
+            <div style="width: {barWidth}%">
+              <p class="hp">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                  />
+                </svg>{hpadam}
+              </p>
+            </div>
+          </div>
+
+          <p class="presetname">Adam</p>
+          <img class="adamimg" src="./images/adam.gif" alt="Adam" />
+        </div>
+
+        <div class="box" id="imgInimigo">
+          <div class="hpini">
+            <div style="width: {barWidthenemy}%">
+              <p class="hp">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                  />
+                </svg>{hpenemy}
+              </p>
+            </div>
+          </div>
+
+          <p class="presetname">Morgred</p>
+          <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
         </div>
       </div>
-      
-      <p class="presetname">Adam</p>
-      <img class="adamimg" src="./images/adam.gif" alt="Adam" />
-    </div>
-    
-    <div class="box" id="imgInimigo">
-      <div class="hpini">
-        <div style="width: {barWidthenemy}%">
-          <p class="hp" > <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-          </svg>{hpenemy}</p>
-        </div>
+
+      <div>
+        <p>{$textoExibido}</p>
+
+        {#if $mostrarCont}
+          <h2 class="txt3">Escolha um ataque:</h2>
+          <div class="container">
+            <div />
+
+            <div class="item tooltip">
+              <span class="tooltiptext"
+                >Dispara três foguetes em sequência!</span
+              >
+
+              <AtaqButton
+                styleProp="background-color:#3b79fe;"
+                label="TRIROCKET"
+                func={ataque1Prota}
+              />
+            </div>
+
+            <div class="item tooltip">
+              <span class="tooltiptext">Rajada de tiros feitos de sucata!</span>
+
+              <AtaqButton
+                styleProp="background-color:#3b79fe;"
+                label="SPRAYTRANSFER"
+                func={ataque2Prota}
+              />
+            </div>
+
+            <div class="item tooltip">
+              <span class="tooltiptext">Constroi uma estação de cura!</span>
+
+              <AtaqButton
+                styleProp="background-color:#3b79fe;"
+                label="MEDBAY"
+                func={ataque3Prota}
+              />
+            </div>
+          </div>
+        {/if}
       </div>
-      
-      <p class="presetname">Morgred</p>
-      <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
+
+      <p class="back">‎</p>
     </div>
   </div>
-  
-  <div>
-    
-    <p>{$textoExibido}</p>
+</main>
 
-    {#if $mostrarCont}
-    <h2 class="txt3">Escolha um ataque:</h2>
-    <div class="container">
-      <div>
-      </div>
-
-
-      <div class="item tooltip">
-        <span class="tooltiptext">Dispara três foguetes em sequência!</span>
-        
-        <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={ataque1Prota}/>
-        
-      </div>
-      
-      <div class="item tooltip">
-        <span class="tooltiptext">Rajada de tiros feitos de sucata!</span>
-        
-        <AtaqButton styleProp=background-color:#3b79fe; label="SPRAYTRANSFER" func={prota.spraytransfer}/>
-        
-      </div>
-      
-      <div class="item tooltip">
-        <span class="tooltiptext">Constroi uma estação de cura!</span>
-        
-        <AtaqButton styleProp=background-color:#3b79fe; label="MEDBAY" func={prota.medbay}/>
-        
-      </div>
-    </div>
-    {/if}
-
-    </div>
-    
-    <p class="back">‎</p>
-        </div>
-      </div>
-    </main>
-    
-    <style>
-      
-      
-      .hpadam,.hpini{
+<style>
+  .hpadam,
+  .hpini {
     width: 290px;
     height: 15px;
     border-radius: 10px;
@@ -170,8 +252,7 @@
     animation: fadeInText 5s;
   }
 
-
-  .hpadam div{
+  .hpadam div {
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
@@ -179,7 +260,7 @@
     transition: 300ms;
   }
 
-  .hpini div{
+  .hpini div {
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
@@ -190,13 +271,12 @@
   .container-page {
     animation: fadeInText 4s;
   }
-  
-  .black{
-    background-color:rgba(8, 8, 8, 0.7);
-    }
 
+  .black {
+    background-color: rgba(8, 8, 8, 0.7);
+  }
 
-  .presetname{
+  .presetname {
     color: #ffffff;
     padding: 0.5em;
     margin-left: 14em;
@@ -220,14 +300,14 @@
     margin-top: 30px;
   }
 
-  p{
+  p {
     color: #ffffff;
     text-shadow: #151515 2px 2px 2px;
     font-size: 25px;
     text-align: center;
   }
 
-  .bi{
+  .bi {
     margin-top: 4%;
   }
 
@@ -251,14 +331,12 @@
     position: relative;
   }
 
-
   .item {
     flex-grow: 1;
     display: flex;
   }
 
-  
-  .hp{
+  .hp {
     font: pixel;
     text-align: center;
     color: rgb(196, 196, 196);
@@ -267,7 +345,7 @@
     margin: 0 auto;
     margin-left: 130px;
   }
-  
+
   @keyframes fadeInText {
     from {
       opacity: 0;
@@ -276,7 +354,7 @@
       opacity: 1;
     }
   }
-  
+
   .txt2 {
     font-size: 45px;
     color: #3b79fe;
@@ -294,7 +372,6 @@
     text-align: center;
     animation: fadeInText 5s;
   }
-
 
   .tooltip {
     position: relative;

@@ -4,6 +4,7 @@
   import AtaqButton from "../AtaqButton.svelte";
   import { textoExibido,mostrarCont } from '../../personagens/store';
   import { onMount, afterUpdate} from 'svelte';
+
  
   const prota = new Adam(100,6,20);
   const enemy = new Inimigo(150,7,15);
@@ -17,6 +18,7 @@
   let hpadam= prota.hp;
   let hpenemy= enemy.hp;
 
+ 
 
   const attHP = (newHP) => {
     hp = newHP > hpMax ? hpMax : newHP;
@@ -34,8 +36,6 @@
   afterUpdate(() => {
     calculateBarWidth();
   });
-
-  
   
   function ataque1Prota() {
     let dado1 = Math.floor(Math.random() * 15)
@@ -101,7 +101,7 @@
 
             if(hpadam>=hpMaxAdam){
               hpadam=hpMaxAdam
-              textoExibido.set('Você tem o HP Maximo! Vez do seu inimigo!');
+              textoExibido.set('Você esta com HP Maximo! Vez do seu inimigo!');
             };
         }
 
@@ -132,12 +132,14 @@
         onmouseenter="audio1.play();"
         onmouseleave="audio2.play();"
         class="menu"
-        on:click={() => trocarEstadoDoJogo("historia3")}
+        on:click={() => trocarEstadoDoJogo("overdisplay")}
       >
         Próximo (provisorio)
       </button>
 
       <h1 class="txt2">CYBERTRON</h1>
+
+      
 
       <div>
         <div class="box" id="imgAdam">

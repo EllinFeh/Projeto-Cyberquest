@@ -25,7 +25,7 @@ export class Adam extends personagem{
     }
     
     medbay(ObjReceptor){
-        ObjReceptor.hp = (ObjReceptor.hp * 2);
+        ObjReceptor.hp = (ObjReceptor.hp +40);
     }
 };
 

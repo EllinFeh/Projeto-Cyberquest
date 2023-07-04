@@ -1,12 +1,9 @@
 <script>
     export let label = "";
     export let func = "";
-    //export let estado = "";
     export let styleProp = "";
     export let song = "";
     import { textoExibido } from '../personagens/store';
-
-  
 </script>
 
 <div>

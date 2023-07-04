@@ -11,10 +11,14 @@
 	import IniciarBatalha1 from './+Historia/IniciarBatalha1.svelte'
 	import IniciarBatalha2 from './+Historia/IniciarBatalha2.svelte'
 
+	import OverDisplay from './+Historia/OverDisplay.svelte'
+	import WinDisplay from './+Historia/WinDisplay.svelte'
+
 	import FirstBattle from './+Batalhas/FirstBattle.svelte'
 	import SecondBattle from './+Batalhas/SecondBattle.svelte'
 	import ThirdBattle from './+Batalhas/ThirdBattle.svelte'
 	import FourthBattle from './+Batalhas/FourthBattle.svelte'
+
 
 	// importa um "writable" que funciona como uma variável global, todos os módulos que a importarem poderão ver o seu valor
 	import { estado } from '../Estado'
@@ -49,5 +53,9 @@
 	<IniciarBatalha1/>
 {:else if $estado === 'iniciarbatalha2'}
 	<IniciarBatalha2/>
+{:else if $estado === 'overdisplay'}
+    <OverDisplay/>
+{:else if $estado === 'windisplay'}
+	<WinDisplay/>
 
 {/if}

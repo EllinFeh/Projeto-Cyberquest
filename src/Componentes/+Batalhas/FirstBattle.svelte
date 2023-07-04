@@ -35,9 +35,32 @@
     calculateBarWidth();
   });
 
-
   
+  
+  function ataque1Prota() {
+    let dado1 = Math.floor(Math.random() * 15)
+        if (dado1 >= 4) {
+            prota.trirocket(enemy)
+            hpenemy = enemy.hp
+            console.log(enemy.hp)
 
+            textoExibido.set('Você acertou o ataque! Vez do seu inimigo!');
+            mostrarCont.set(false);
+         setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 8000);
+        }
+        else{
+            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
+            mostrarCont.set(false);
+   
+            setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 8000);
+        }
+  }
 </script>
 
 
@@ -106,7 +129,7 @@
       <div class="item tooltip">
         <span class="tooltiptext">Dispara três foguetes em sequência!</span>
         
-        <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={prota.trirocket}/>
+        <AtaqButton styleProp=background-color:#3b79fe; label="TRIROCKET" func={ataque1Prota}/>
         
       </div>
       

@@ -49,18 +49,21 @@
          setTimeout(() => {
             textoExibido.set('');
             mostrarCont.set(true);
-          }, 8000);
+          }, 6000);
         }
         else{
-            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
-            mostrarCont.set(false);
-   
-            setTimeout(() => {
-               textoExibido.set('');
-               mostrarCont.set(true);
-             }, 8000);
+          textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
+          mostrarCont.set(false);
+          
+          setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 6000);
         }
-  }
+        if(hpenemy < 0){
+          hpenemy = 0
+        }
+      }
 
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
@@ -73,7 +76,7 @@
         setTimeout(() => {
            textoExibido.set('');
            mostrarCont.set(true);
-         }, 8000);
+         }, 6000);
         }
         else{
             textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
@@ -82,10 +85,12 @@
             setTimeout(() => {
                textoExibido.set('');
                mostrarCont.set(true);
-             }, 8000);
+             }, 6000);
         }
+        if(hpenemy < 0){
+          hpenemy = 0
     }
-
+  }
     function ataque3Prota(){
       let dado3 = Math.floor(Math.random() * 15)
         if (dado3 >= 8) {
@@ -97,10 +102,10 @@
             setTimeout(() => {
                 textoExibido.set('');
                 mostrarCont.set(true);
-            }, 8000);
+            }, 6000);
 
             if(hpadam>=hpMaxAdam){
-              hpadam=hpMaxAdam
+              hpadam=hpMaxAdam;
               textoExibido.set('Você esta com HP Maximo! Vez do seu inimigo!');
             };
         }
@@ -112,9 +117,30 @@
             setTimeout(() => {
                textoExibido.set('');
                mostrarCont.set(true);
-             }, 8000);
+             }, 6000);
         }
+        
+    }
 
+    function ataqueEnemy(){
+      let dado4 = Math.floor(Math.random() * 18);
+      if(dado4 <= 6){
+        enemy.MarteloDeFerro(prota);
+        hpadam = prota.hp;
+        textoExibido.set('Seu inimigo usou Martelo de Ferro!');
+      }else if(dado4 > 6 && dado4 <= 11){
+        enemy.PulsoDeDestruição;
+        hpadam = prota.hp;
+        textoExibido.set('Seu inimigo usou Pulso de Destruição!');
+      }else if (dado4 > 11 && dado4 <= 14){
+        enemy.TempestadeDeEletrons;
+        hpadam = prota.hp;
+        textoExibido.set('Seu inimigo usou Tempestade de Elétrons!');
+        
+      }else{
+        textoExibido.set('Ataque do inimigo falhou!');
+        
+      }
     }
     
   

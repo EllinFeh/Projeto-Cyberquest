@@ -36,4 +36,13 @@ export class Inimigo extends personagem{
         super(hp,def,atq);
         this.id = "Inimigo";
     }
-};
+    MarteloDeFerro(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - (this.atq - ObjAtacado.def);
+    }
+    TempestadeDeEletrons(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - (this.atq * 3 - ObjAtacado.def);
+    }
+    PulsoDeDestruição(ObjAtacado){
+        ObjAtacado.hp = ObjAtacado.hp - (this.atq * 2 - ObjAtacado.def);
+    }
+}

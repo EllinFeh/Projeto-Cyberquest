@@ -1,6 +1,7 @@
 <script>
     export let label = "";
-    export let func = "";
+    export let Func = "";
+    export let FuncTwo = "";
     export let styleProp = "";
     export let song = "";
     import { textoExibido } from '../personagens/store';
@@ -11,7 +12,8 @@
         onmouseenter="audio2.play();"
         class="btn"
         onclick= {song}
-        on:click={func}
+        on:click={FuncTwo}
+        on:click={Func}
         on:click={textoExibido}
         style={styleProp}
     >

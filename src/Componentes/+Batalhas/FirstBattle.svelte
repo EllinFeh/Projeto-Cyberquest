@@ -6,8 +6,8 @@
   import { onMount, afterUpdate} from 'svelte';
 
  
-  const prota = new Adam(100,6,20);
-  const enemy = new Inimigo(150,7,15);
+  const prota = new Adam(100,6,19);
+  const enemy = new Inimigo(150,9,15);
 
   //barra de vida adam e inimigo:
   const hpMaxAdam = 100;
@@ -17,8 +17,14 @@
   let barWidthenemy = 100;
   let hpadam= prota.hp;
   let hpenemy= enemy.hp;
-
  
+function win(){
+  trocarEstadoDoJogo('windisplay')
+}
+
+function over(){
+  trocarEstadoDoJogo('overdisplay')
+}
 
   const attHP = (newHP) => {
     hp = newHP > hpMax ? hpMax : newHP;
@@ -38,30 +44,29 @@
   });
   
   function ataque1Prota() {
-    let dado1 = Math.floor(Math.random() * 15)
-        if (dado1 >= 4) {
+    let dado1 = Math.floor(Math.random() * 10)
+        if (dado1 >= 3) {
             prota.trirocket(enemy)
             hpenemy = enemy.hp
             console.log(enemy.hp)
 
-            textoExibido.set('Você usou TriRocket! Vez do seu inimigo!');
+            textoExibido.set('Adam acertou TriRocket! Vez do inimigo!');
             mostrarCont.set(false);
          setTimeout(() => {
             textoExibido.set('');
-            mostrarCont.set(true);
-          }, 6000);
+          }, 3500);
         }
         else{
-          textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
+          textoExibido.set('Adam errou o ataque! Vez do inimigo!');
           mostrarCont.set(false);
           
           setTimeout(() => {
             textoExibido.set('');
-            mostrarCont.set(true);
-          }, 6000);
+          }, 3500);
         }
         if(hpenemy < 0){
           hpenemy = 0
+          win()
         }
       }
 
@@ -70,80 +75,148 @@
         if (dado2 >= 6) {
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
-        textoExibido.set('Você usou SprayTransfer! Vez do seu inimigo!');
+        textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
         mostrarCont.set(false);
 
         setTimeout(() => {
            textoExibido.set('');
-           mostrarCont.set(true);
-         }, 6000);
+         }, 3500);
         }
         else{
-            textoExibido.set('Você errou o ataque! Vez do seu inimigo!');
+            textoExibido.set('Adam errou o ataque! Vez do inimigo!');
             mostrarCont.set(false);
 
             setTimeout(() => {
                textoExibido.set('');
-               mostrarCont.set(true);
-             }, 6000);
+             }, 3500);
         }
         if(hpenemy < 0){
           hpenemy = 0
+          win()
     }
   }
-    function ataque3Prota(){
-      let dado3 = Math.floor(Math.random() * 15)
-        if (dado3 >= 8) {
-           prota.medbay(prota);
-           hpadam= prota.hp;
-          textoExibido.set('Você se curou! Vez do seu inimigo!');
-          mostrarCont.set(false);
-            
-            setTimeout(() => {
-                textoExibido.set('');
-                mostrarCont.set(true);
-            }, 6000);
+  
+  function chamarcura(){
+            if(hpadam<=(hpMaxAdam-40)){
+              ataque3Prota()
+            } else{
+              textoExibido.set('Adam não pode se curar ainda!');
+              mostrarCont.set(false);
 
-            if(hpadam>=hpMaxAdam){
-              hpadam=hpMaxAdam;
-              textoExibido.set('Você esta com HP Maximo! Vez do seu inimigo!');
-            };
-        }
-
-        else{
-            textoExibido.set('Medbay Falhou! Vez do seu inimigo!');
-            mostrarCont.set(false);
-
-            setTimeout(() => {
+              setTimeout(() => {
                textoExibido.set('');
                mostrarCont.set(true);
-             }, 6000);
+             }, 1000);
         }
-        
-    }
-
-    function ataqueEnemy(){
-      let dado4 = Math.floor(Math.random() * 18);
-      if(dado4 <= 6){
-        enemy.MarteloDeFerro(prota);
-        hpadam = prota.hp;
-        textoExibido.set('Seu inimigo usou Martelo de Ferro!');
-      }else if(dado4 > 6 && dado4 <= 11){
-        enemy.PulsoDeDestruição;
-        hpadam = prota.hp;
-        textoExibido.set('Seu inimigo usou Pulso de Destruição!');
-      }else if (dado4 > 11 && dado4 <= 14){
-        enemy.TempestadeDeEletrons;
-        hpadam = prota.hp;
-        textoExibido.set('Seu inimigo usou Tempestade de Elétrons!');
-        
-      }else{
-        textoExibido.set('Ataque do inimigo falhou!');
-        
       }
+
+  function ataque3Prota(){
+    let dado3 = Math.floor(Math.random() * 15)
+        if (dado3 >= 7) {
+          prota.medbay(prota);
+          hpadam= prota.hp;
+          textoExibido.set('Adam se curou! Vez do inimigo!');
+          mostrarCont.set(false);
+          ataqueEnemy()
+          
+          setTimeout(() => {
+              textoExibido.set('');
+            }, 3500);
+            
+          }
+          
+          else{
+            textoExibido.set('Medbay Falhou! Vez do inimigo!');
+            mostrarCont.set(false);
+            ataqueEnemy()
+            
+            setTimeout(() => {
+              textoExibido.set('');
+            }, 3500);
+          }
+        
+        setTimeout(() => {
+          textoExibido.set('');
+        }, 2000);
+    }
+      
+
+
+      function ataqueEnemy(){
+        setTimeout(() => {
+          
+          
+          let dado4 = Math.floor(Math.random() * 15);
+          if(dado4 <= 6){
+            mostrarCont.set(false);
+            enemy.MarteloDeFerro(prota);
+            hpadam = prota.hp;
+            textoExibido.set('Seu inimigo usou Martelo de Ferro!');
+            console.log('estou sendo chamado')
+
+            setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 4000);
+
+        if(hpadam < 0){
+          hpadam = 0
+          over()
+        }
+
+          }else if(dado4 > 6 && dado4 <= 9){
+            mostrarCont.set(false);
+            enemy.PulsoDeDestruição(prota)
+            hpadam = prota.hp;
+          textoExibido.set('Seu inimigo usou Pulso de Destruição!');
+          console.log('estou sendo chamado')
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 2000);
+
+          if(hpadam < 0){
+          hpadam = 0
+          over()
+        }
+
+        }else if (dado4 > 9 && dado4 <= 11){
+          mostrarCont.set(false);
+          enemy.TempestadeDeEletrons(prota)
+          hpadam = prota.hp;
+          textoExibido.set('Seu inimigo usou Tempestade de Elétrons!');
+          console.log('estou sendo chamado')
+
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 2000);
+
+          if(hpadam < 0){
+          hpadam = 0
+          over()
+        }
+          
+        }else{
+          mostrarCont.set(false);
+          textoExibido.set('Ataque do inimigo falhou!');
+          console.log('estou sendo chamado')
+
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 6000);
+
+          if(hpadam < 0){
+          hpadam = 0
+        }
+
+        }
+
+      }, 4000);
     }
     
-  
+    
 </script>
 
 <audio autoplay loop src="./audio/batalha1.mp3" />
@@ -235,7 +308,8 @@
               <AtaqButton
                 styleProp="background-color:#3b79fe;"
                 label="TRIROCKET"
-                func={ataque1Prota}
+                FuncTwo={ataqueEnemy}
+                Func={ataque1Prota}
               />
             </div>
 
@@ -245,7 +319,8 @@
               <AtaqButton
                 styleProp="background-color:#3b79fe;"
                 label="SPRAYTRANSFER"
-                func={ataque2Prota}
+                FuncTwo={ataqueEnemy}
+                Func={ataque2Prota}
               />
             </div>
 
@@ -255,7 +330,7 @@
               <AtaqButton
                 styleProp="background-color:#3b79fe;"
                 label="MEDBAY"
-                func={ataque3Prota}
+                Func={chamarcura}
               />
             </div>
           </div>

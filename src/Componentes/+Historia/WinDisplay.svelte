@@ -2,4 +2,4 @@
     import { trocarEstadoDoJogo } from "../../Estado";
 </script>
 
-<h1>Vc ganhou</h1>
+<h1>VOCE GANHOUUU</h1>

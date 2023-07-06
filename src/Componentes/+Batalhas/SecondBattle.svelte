@@ -1,126 +1,343 @@
 <script>
   import { trocarEstadoDoJogo } from "../../Estado";
+  import { Adam, Inimigo,} from "../../personagens/Protagonista"
+  import AtaqButton from "../AtaqButton.svelte";
+  import { textoExibido,mostrarCont } from '../../personagens/store';
+  import { onMount, afterUpdate} from 'svelte';
+ 
+  const prota = new Adam(150,8,19);
+  const enemy = new Inimigo(200,11,17);
+
+  //barra de vida adam e inimigo:
+  const hpMaxAdam = 150;
+  const hpMaxEnemy = 200;
+
+  let barWidth = 100;
+  let barWidthenemy = 100;
+  let hpadam= prota.hp;
+  let hpenemy= enemy.hp;
+ 
+  function winorOver(){
+  if(hpadam<=0){
+    trocarEstadoDoJogo('overdisplay')
+  }
+  else if(hpenemy<=0){
+    trocarEstadoDoJogo('windisplay1');
+    
+  }
+}
+
+  const attHP = (newHP) => {
+    hp = newHP > hpMax ? hpMax : newHP;
+  };
+
+  const calculateBarWidth = () => {
+    barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
+    barWidth = (hpadam / hpMaxAdam) * 100;
+  };
+
+  onMount(() => {
+    calculateBarWidth();
+  });
+
+  afterUpdate(() => {
+    calculateBarWidth();
+  });
+  
+  function ataque1Prota() {
+    let dado1 = Math.floor(Math.random() * 10)
+        if (dado1 >= 3) {
+            prota.trirocket(enemy)
+            hpenemy = enemy.hp
+
+            textoExibido.set('Adam acertou TriRocket! Vez do inimigo!');
+            mostrarCont.set(false);
+         setTimeout(() => {
+            textoExibido.set('');
+          }, 3500);
+        }
+        else{
+          textoExibido.set('Adam errou o ataque! Vez do inimigo!');
+          mostrarCont.set(false);
+          
+          setTimeout(() => {
+            textoExibido.set('');
+          }, 3500);
+        }
+        if(hpenemy < 0){
+          hpenemy = 0
+        }
+      }
+      winorOver();
+
+  function ataque2Prota(){
+    let dado2 = Math.floor(Math.random() * 15)
+        if (dado2 >= 8) {
+        prota.spraytransfer(enemy);
+        hpenemy = enemy.hp;
+        textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
+        mostrarCont.set(false);
+
+        setTimeout(() => {
+           textoExibido.set('');
+         }, 3500);
+        }
+        else{
+            textoExibido.set('Adam errou o ataque! Vez do inimigo!');
+            mostrarCont.set(false);
+
+            setTimeout(() => {
+               textoExibido.set('');
+             }, 3500);
+        }
+        if(hpadam < 0){
+          hpadam = 0
+        } 
+        winorOver();
+  }
+  
+  function chamarcura(){
+            if(hpadam<=(hpMaxAdam-40)){
+              ataque3Prota()
+            } else{
+              textoExibido.set('Adam não pode se curar ainda!');
+              mostrarCont.set(false);
+
+              setTimeout(() => {
+               textoExibido.set('');
+               mostrarCont.set(true);
+             }, 1000);
+        }
+      }
+
+  function ataque3Prota(){
+    let dado3 = Math.floor(Math.random() * 15)
+        if (dado3 >= 6) {
+          prota.medbay(prota);
+          hpadam= prota.hp;
+          textoExibido.set('Adam se curou! Vez do inimigo!');
+          mostrarCont.set(false);
+          ataqueEnemy()
+          
+          setTimeout(() => {
+              textoExibido.set('');
+            }, 3500);
+            
+          }
+          
+          else{
+            textoExibido.set('Medbay Falhou! Vez do inimigo!');
+            mostrarCont.set(false);
+            ataqueEnemy()
+            
+            setTimeout(() => {
+              textoExibido.set('');
+            }, 3500);
+          }
+        
+        setTimeout(() => {
+          textoExibido.set('');
+        }, 2000);
+    }
+      
+      function ataqueEnemy(){
+        setTimeout(() => {
+          
+          
+          let dado4 = Math.floor(Math.random() * 15);
+          if(dado4 <= 6){
+            mostrarCont.set(false);
+            enemy.MarteloDeFerro(prota);
+            hpadam = prota.hp;
+            textoExibido.set('Seu inimigo usou Golpes esmagadores!');
+
+            setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 4000);
+
+        if(hpenemy < 0){
+          hpenemy = 0
+        } 
+        winorOver();
+
+          }else if(dado4 > 6 && dado4 <= 9){
+            mostrarCont.set(false);
+            enemy.PulsoDeDestruição(prota)
+            hpadam = prota.hp;
+          textoExibido.set('Seu inimigo usou Presas Venenosas!');
+
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 2000);
+
+        if(hpenemy < 0){
+          hpenemy = 0
+        } 
+        winorOver();
+
+        }else if (dado4 > 9 && dado4 <= 11){
+          mostrarCont.set(false);
+          enemy.TempestadeDeEletrons(prota)
+          hpadam = prota.hp;
+          textoExibido.set('Seu inimigo usou Granizo de laser!');
+
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 2000);
+
+        if(hpenemy < 0){
+          hpenemy = 0
+        } 
+        winorOver();
+          
+        }else{
+          mostrarCont.set(false);
+          textoExibido.set('Seu inimigo errou o ataque!');
+
+          setTimeout(() => {
+          textoExibido.set('');
+          mostrarCont.set(true);
+        }, 6000);
+
+
+        }
+
+      }, 4000);
+    }
+    
+    
 </script>
 
-<audio autoplay loop src="./audio/batalha2.mp3"></audio>
+<audio autoplay loop src="./audio/batalha2.mp3" />
 
 <main>
-  
   <div
     class="container-page"
     style="background-image: url(/images/fundos/Fundobatle2.png);"
   >
-  <div class="black">
+    <div class="black">
+      <button
+        onmouseenter="audio1.play();"
+        onmouseleave="audio2.play();"
+        class="menu"
+        on:click={() => trocarEstadoDoJogo("windisplay1")}
+      >
+        Próximo (provisorio)
+      </button>
 
-    <button
-    onmouseenter="audio1.play();"
-    onmouseleave="audio2.play();"
-    class="menu"
-    on:click={() => trocarEstadoDoJogo("")}
-    >
-    Próximo
-  </button>
-  
-  <h1 class="txt2">Adam vs Torget</h1>
+      <h1 class="txt2">MAELSTRON</h1>
 
-    
-  <div>
-    <div class="box" id="imgAdam">
+      
 
-      <div class="barra"> 
-        <div>
-          <p class="hp">HP</p>
-        </div>
-      </div>
-
-      <div class="barra2"> 
-        <div>
-         
-        </div>
-      </div>
-      <p class="presetname">Adam</p>
-      <img class="adamimg" src="./images/adam.gif" alt="Adam" />
-    </div>
-    
-    <div class="box" id="imgInimigo">
-        <div class="barra">
-          <div>
-            <p class="hp">HP</p>
-        </div>
-      </div>
-
-      <div class="barra2"> 
-        <div>
-         
-        </div>
-      </div>
-      <p class="presetname">Torget</p>
-      <img class="inmg" src="./images/inimigo2.gif" alt="Inimigo" />
-    </div>
-  </div>
-  
-  <div class="box">
-      <h2 class="txt3">Escolha um ataque:</h2>
-
-      <div class="container">
-        <div class="item tooltip">
-          <span class="tooltiptext">Dispara três foguetes em sequência</span>
-          <button class="but" onclick="trirocket.play();"
-          ><p class="ataquenome">Tri-Rocket</p></button
-          >
-        </div>
-        
-        <div class="item tooltip">
-          <span class="tooltiptext">Rajada de tiros feitos de sucata</span>
-          <button class="but" onclick="spray.play();"
-          ><p class="ataquenome">SprayTransfer</p></button
-          >
-        </div>
-        
-        <div class="item tooltip">
-          <span class="tooltiptext">Constroi uma estaçao de cura</span>
-          <button class="but" onclick="medbay.play();"
-          ><p class="ataquenome">MedBay</p></button
-          >
-        </div>
-      </div>
-    </div>
-    
-    <div class="box">
-      <h2 class="txt3">Ataques do seu inimigo:</h2>
-
-      <div class="container">
-        <div class="item tooltip">
-          <span class="tooltiptext">????????</span>
-          <button class="but2" onclick="audio3.play();">
-            <p class="ataquenome">Scrapper</p></button
-            >
-          </div>
-          
-          <div class="item tooltip">
-            <span class="tooltiptext">????????</span>
-            <button class="but2" onclick="audio3.play();">
-              <p class="ataquenome">StingBee</p></button
-              >
-            </div>
-            
-            <div class="item tooltip">
-              <span class="tooltiptext">????????</span>
-              <button class="but2" onclick="audio3.play();">
-                <p class="ataquenome">Deathbolt</p></button
+      <div>
+        <div class="box" id="imgAdam">
+          <div class="hpadam">
+            <div style="width: {barWidth}%">
+              <p class="hp">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
                 >
-              </div>
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                  />
+                </svg>{hpadam}
+              </p>
             </div>
           </div>
-          
-          <p class="back">‎</p>
+
+          <p class="presetname">Adam</p>
+          <img class="adamimg" src="./images/adam.gif" alt="Adam" />
         </div>
+
+        <div><img class="vs" src="./images/vs.png" alt=""></div>
+
+        <div class="box" id="imgInimigo">
+          <div class="hpini">
+            <div style="width: {barWidthenemy}%">
+              <p class="hp">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="13"
+                  fill="currentColor"
+                  class="bi bi-heart-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+                  />
+                </svg>{hpenemy}
+              </p>
+            </div>
+          </div>
+
+          <p class="presetname">Torget</p>
+          <img class="inmg" src="./images/inimigo2.gif" alt="Inimigo" />
+        </div>
+      </div>
+
+      <div>
+        <p>{$textoExibido}</p>
+
+        {#if $mostrarCont}
+          <h2 class="txt3">Escolha um ataque:</h2>
+          <div class="container">
+            <div />
+
+            <div class="item tooltip">
+              <span class="tooltiptext"
+                >Dispara três foguetes em sequência! <br> 80% de acerto</span
+              >
+
+              <AtaqButton
+                styleProp="background-color:#00744f;"
+                label="TRIROCKET"
+                FuncTwo={ataqueEnemy}
+                Func={ataque1Prota}
+              />
+            </div>
+
+            <div class="item tooltip">
+              <span class="tooltiptext">Rajada de tiros feitos de sucata! <br> 45% de acerto</span>
+
+              <AtaqButton
+                styleProp="background-color:#00744f;"
+                label="SPRAYTRANSFER"
+                FuncTwo={ataqueEnemy}
+                Func={ataque2Prota}
+              />
+            </div>
+
+            <div class="item tooltip">
+              <span class="tooltiptext">Constroi uma estação de cura! <br> 38% de acerto</span>
+
+              <AtaqButton
+                styleProp="background-color:#00744f;"
+                label="MEDBAY"
+                Func={chamarcura}
+              />
+            </div>
+          </div>
+        {/if}
+      </div>
+      <p class="back">‎</p>
+    </div>
   </div>
 </main>
 
 <style>
-
-  .barra{
+  .hpadam,
+  .hpini {
     width: 290px;
     height: 15px;
     border-radius: 10px;
@@ -131,68 +348,40 @@
     animation: fadeInText 5s;
   }
 
-  .barra div{
+  .hpadam div {
     height: 100%;
     border-radius: 10px;
     background-color: rgb(250, 0, 0);
-    width: 100%;
     animation: fadeInText 5s;
+    transition: 300ms;
   }
 
-  .barra2{
-    width: 240px;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #333;
-    margin: 0 auto;
-    border: 1.8px solid rgb(0, 0, 0, 0.7);
-    margin-bottom: 5px;
-    animation: fadeInText 5s;
-    transition: 500ms;
-  }
-
-  .barra2 div{
+  .hpini div {
     height: 100%;
     border-radius: 10px;
-    background-color: rgb(81, 0, 61);
-    width: 100%;
+    background-color: rgb(250, 0, 0);
+    transition: 300ms;
     animation: fadeInText 5s;
-    transition: 500ms;
   }
 
+  .vs{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 320px;
+    left: 50%;
+
+  }
 
   .container-page {
-    animation: fadeInText 5s;
-  }
-  
-  .black{
-    background-color:rgba(8, 8, 8, 0.503);
-    }
-
-
-  button {
-    font-size: 18px;
-    outline: none;
-    transition: 290ms;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    animation: fadeInText 5s;
+    animation: fadeInText 4s;
   }
 
-  .but {
-    background-color: #00744f;;
-    animation: fadeInText 5s;
+  .black {
+    background-color: rgba(8, 8, 8, 0.7);
   }
 
-  .but2 {
-    background-color: #8e013e;
-    animation: fadeInText 5s;
-  }
-
-  .presetname{
+  .presetname {
     color: #ffffff;
     padding: 0.5em;
     margin-left: 14em;
@@ -216,6 +405,17 @@
     margin-top: 30px;
   }
 
+  p {
+    color: #ffffff;
+    text-shadow: #151515 2px 2px 2px;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  .bi {
+    margin-top: 4%;
+  }
+
   .box {
     float: left;
     width: 50%;
@@ -228,33 +428,29 @@
 
   .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     background-color: rgba(0, 0, 0, 0.425);
-    border-radius: 20px;
-    margin: 20px;
-
+    border-radius: 1em;
+    margin: 0 20%;
+    position: relative;
   }
 
   .item {
-    width: 80%;
+    flex-grow: 1;
+    display: flex;
   }
 
-  .txt2 {
-    font-size: 60px;
-    color: #00744f;
-    text-shadow: #151515 2px 2px 2px;
-    margin: 0;
-    margin-bottom: 50px;
-    animation: fadeInText 5s;
-  }
-
-  .hp{
+  .hp {
     font: pixel;
     text-align: center;
-    color: black;
+    color: rgb(196, 196, 196);
     font-size: 15px;
+    position: absolute;
     margin: 0 auto;
+    margin-left: 130px;
   }
+  
 
   @keyframes fadeInText {
     from {
@@ -263,6 +459,15 @@
     to {
       opacity: 1;
     }
+  }
+
+  .txt2 {
+    font-size: 45px;
+    color: #00744f;
+    text-shadow: #151515 2px 2px 2px;
+    margin: 0;
+    margin-bottom: 2em;
+    animation: fadeInText 5s;
   }
 
   .txt3 {
@@ -274,16 +479,9 @@
     animation: fadeInText 5s;
   }
 
-  .ataquenome {
-    margin: 10px;
-    color: rgb(255, 255, 255);
-    animation: fadeInText 5s;
-  }
-
   .tooltip {
     position: relative;
     display: inline-block;
-
   }
 
   .tooltip .tooltiptext {
@@ -295,7 +493,8 @@
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
-
+    top: -45%;
+    left: 0%;
   }
 
   .tooltip:hover .tooltiptext {

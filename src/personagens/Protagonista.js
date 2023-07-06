@@ -2,7 +2,7 @@ import { textoExibido, mostrarCont } from "./store";
 
 
 class personagem{
-    constructor(hp,def,atq,){
+    constructor(hp,def,atq){
         this.hp = hp;
         this.def = def;
         this.atq = atq;
@@ -11,7 +11,7 @@ class personagem{
 
 
 export class Adam extends personagem{
-    constructor(hp,def,atq,){
+    constructor(hp,def,atq){
         super(hp,def,atq);
     }
     

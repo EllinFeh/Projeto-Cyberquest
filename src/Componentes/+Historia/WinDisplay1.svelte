@@ -25,7 +25,7 @@
            </div>
        </div>
        
-       <Button label="OK!" estado="iniciarbatalha2" song="audio3.play();" />
+       <Button label="OK!" estado="iniciarbatalha3" song="audio3.play();" />
    
    <p class="back">‎</p>
    </div>
@@ -49,7 +49,7 @@
    
    
        .black{
-           background-color:rgba(34, 34, 34, 0.2);
+           background-color:rgba(32, 32, 32, 0.2);
        }
    
        .box {

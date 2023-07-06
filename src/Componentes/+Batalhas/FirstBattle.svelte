@@ -18,13 +18,15 @@
   let hpadam= prota.hp;
   let hpenemy= enemy.hp;
  
-function win(){
-  trocarEstadoDoJogo('windisplay')
+function winorOver(){
+  if(hpadam<=0){
+    trocarEstadoDoJogo('overdisplay')
+  }
+  else if(hpenemy<=0){
+    trocarEstadoDoJogo('windisplay')
+  }
 }
 
-function over(){
-  trocarEstadoDoJogo('overdisplay')
-}
 
   const attHP = (newHP) => {
     hp = newHP > hpMax ? hpMax : newHP;
@@ -66,13 +68,13 @@ function over(){
         }
         if(hpenemy < 0){
           hpenemy = 0
-          win()
         }
+        winorOver();
       }
 
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
-        if (dado2 >= 6) {
+        if (dado2 >= 7) {
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
         textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -92,8 +94,8 @@ function over(){
         }
         if(hpenemy < 0){
           hpenemy = 0
-          win()
     }
+    winorOver();
   }
   
   function chamarcura(){
@@ -152,7 +154,6 @@ function over(){
             enemy.MarteloDeFerro(prota);
             hpadam = prota.hp;
             textoExibido.set('Seu inimigo usou Martelo de Ferro!');
-            console.log('estou sendo chamado')
 
             setTimeout(() => {
           textoExibido.set('');
@@ -161,15 +162,14 @@ function over(){
 
         if(hpadam < 0){
           hpadam = 0
-          over()
         }
+        winorOver();
 
           }else if(dado4 > 6 && dado4 <= 9){
             mostrarCont.set(false);
             enemy.PulsoDeDestruição(prota)
             hpadam = prota.hp;
           textoExibido.set('Seu inimigo usou Pulso de Destruição!');
-          console.log('estou sendo chamado')
           setTimeout(() => {
           textoExibido.set('');
           mostrarCont.set(true);
@@ -177,15 +177,14 @@ function over(){
 
           if(hpadam < 0){
           hpadam = 0
-          over()
         }
+        winorOver();
 
         }else if (dado4 > 9 && dado4 <= 11){
           mostrarCont.set(false);
           enemy.TempestadeDeEletrons(prota)
           hpadam = prota.hp;
           textoExibido.set('Seu inimigo usou Tempestade de Elétrons!');
-          console.log('estou sendo chamado')
 
           setTimeout(() => {
           textoExibido.set('');
@@ -194,8 +193,9 @@ function over(){
 
           if(hpadam < 0){
           hpadam = 0
-          over()
         }
+
+        winorOver();
           
         }else{
           mostrarCont.set(false);
@@ -231,7 +231,7 @@ function over(){
         onmouseenter="audio1.play();"
         onmouseleave="audio2.play();"
         class="menu"
-        on:click={() => trocarEstadoDoJogo("overdisplay")}
+        on:click={() => trocarEstadoDoJogo("windisplay")}
       >
         Próximo (provisorio)
       </button>
@@ -265,6 +265,8 @@ function over(){
           <p class="presetname">Adam</p>
           <img class="adamimg" src="./images/adam.gif" alt="Adam" />
         </div>
+
+        <div><img class="vs" src="./images/vs.png" alt=""></div>
 
         <div class="box" id="imgInimigo">
           <div class="hpini">
@@ -302,7 +304,7 @@ function over(){
 
             <div class="item tooltip">
               <span class="tooltiptext"
-                >Dispara três foguetes em sequência!</span
+                >Dispara três foguetes em sequência! <br> 80% de acerto</span
               >
 
               <AtaqButton
@@ -314,7 +316,7 @@ function over(){
             </div>
 
             <div class="item tooltip">
-              <span class="tooltiptext">Rajada de tiros feitos de sucata!</span>
+              <span class="tooltiptext">Rajada de tiros feitos de sucata! <br> 55% de acerto</span>
 
               <AtaqButton
                 styleProp="background-color:#3b79fe;"
@@ -325,7 +327,7 @@ function over(){
             </div>
 
             <div class="item tooltip">
-              <span class="tooltiptext">Constroi uma estação de cura!</span>
+              <span class="tooltiptext">Constroi uma estação de cura! <br> 38% de acerto</span>
 
               <AtaqButton
                 styleProp="background-color:#3b79fe;"
@@ -369,6 +371,15 @@ function over(){
     background-color: rgb(250, 0, 0);
     transition: 300ms;
     animation: fadeInText 5s;
+  }
+
+  .vs{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 320px;
+    left: 50%;
+
   }
 
   .container-page {
@@ -463,7 +474,7 @@ function over(){
     color: #3b79fe;
     text-shadow: #151515 2px 2px 2px;
     margin: 0;
-    margin-bottom: 1.5em;
+    margin-bottom: 2em;
     animation: fadeInText 5s;
   }
 
@@ -490,7 +501,7 @@ function over(){
     padding: 5px 0;
     border-radius: 6px;
     position: absolute;
-    top: -36%;
+    top: -45%;
     left: 0%;
   }
 

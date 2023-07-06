@@ -1,50 +1,44 @@
 <script>
- import Button from "../Button.svelte";
+    import Button from "../Button.svelte";
 </script>
-
 
 <main>
     
     <div
     class="container-page"
-    style="background-image: url(/images/fundos/Fundobatle1.png);"
+    style="background-image: url(/images/fundos/Fundobatle3.png);"
     >
     <div class="black">
     
-        <h1 class="txt2">AMEAÇA A CYBERCITY</h1>
+        <h1 class="txt2">PERSEVERANÇA</h1>
         <div>
             <h3 class="txt">
-                Adam depara-se com um adversário singular que se autodenomina
-                Morgred, um indivíduo de aparência extraordinária cujas ações
-                malignas resultaram na morte de mais de trinta famílias
-                inocentes. Além disso, este nefasto ser aterroriza a cidade
-            cibernética com uma série de atos de violência e atrocidades.
+                Adam, percebeu que não poderia fugir da sua missão, ele já estava se tornando um justiceiro. 
+                Ele sabia que era o único capaz de deter todo mal a cybercity, agora a nova ameça apareçe: Radagast!
         </h3>
         
         <div class="">
-            <div class="box tooltip" id="imgAdam" >
+            <div class="box tooltip" id="imgAdam">
                 <span class="tooltiptext">ESTATISTICAS: <br>
-                HP: 100<br>
-                ATQ: 19<br>
-                DEF: 6<br>
-
+                    HP: 170<br>
+                    ATQ: 10<br>
+                    DEF: 21<br>
                 </span>
                 <img class="adamimg" src="./images/adam.gif" alt="Adam" />
             </div>
             
             <div class="box tooltip" id="imgInimigo">
                 <span class="tooltiptext">ESTATISTICAS: <br>
-                    HP: 150<br>
-                    ATQ: 15<br>
-                    DEF: 9<br>
-                    
-                    </span>
-                <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
+                    HP: 220<br>
+                    ATQ: 13<br>
+                    DEF: 19<br>
+                </span>
+                <img class="inmg" src="./images/inimigo3.gif" alt="Inimigo" />
             </div>
         </div>
     </div>
     
-    <Button styleProp=background-color:#910;color:#ffff;border:none; label="INICIAR BATALHA" estado="firstbattle" song="audio3.play();" />
+    <Button styleProp=background-color:#910;color:#ffff;border:none; label="INICIAR BATALHA" estado="thirdbattle" song="audio3.play();" />
 
 <p class="back">‎</p>
 </div>
@@ -60,28 +54,28 @@
     }
 
     .inmg {
-        width: 250px;
-        height: 160px;
+        width: 390px;
+        height: 190px;
         animation: fadeInText 1s;
         margin-top: 30px;
     }
 
     .black{
         background-color:rgba(8, 8, 8, 0.716);
+
     }
 
     .box {
         float: left;
         width: 50%;
-        height: 300px;
+        height: 310px;
         border-radius: 5px;
-        box-shadow: 0px 0px 0px black;
         overflow: hidden;
     }
 
     .txt {
-        margin-left: 25%;
-        margin-right: 25%;
+        margin-left: 10%;
+        margin-right: 10%;
         margin-bottom: 1em;
         color: rgb(255, 255, 255);
         text-shadow: #333 2px 2px 2px;
@@ -91,7 +85,7 @@
 
     .txt2 {
         font-size: 60px;
-        color: #3d7bff;
+        color: #cf03fc;
         text-shadow: #333 2px 2px 2px;
         animation: fadeInText 1s;
         margin-left: 13%;

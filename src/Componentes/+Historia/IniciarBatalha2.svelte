@@ -1,5 +1,6 @@
 <script>
     import { trocarEstadoDoJogo } from "../../Estado";
+    import Button from "../Button.svelte";
 </script>
 
 <main>
@@ -19,24 +20,27 @@
         </h3>
         
         <div class="">
-            <div class="box" id="imgAdam">
+            <div class="box tooltip" id="imgAdam">
+                <span class="tooltiptext">ESTATISTICAS: <br>
+                    HP: 150<br>
+                    ATQ: 8<br>
+                    DEF: 19<br>
+                </span>
                 <img class="adamimg" src="./images/adam.gif" alt="Adam" />
             </div>
             
-            <div class="box" id="imgInimigo">
+            <div class="box tooltip" id="imgInimigo">
+                <span class="tooltiptext">ESTATISTICAS: <br>
+                    HP: 200<br>
+                    ATQ: 11<br>
+                    DEF: 17<br>
+                </span>
                 <img class="inmg" src="./images/inimigo2.gif" alt="Inimigo" />
             </div>
         </div>
     </div>
     
-    <button
-    onmouseenter="audio1.play();"
-    onclick="audio3.play();"
-    class="menu"
-    on:click={() => trocarEstadoDoJogo("secondbattle")}
-    >
-    INICIAR BATALHA
-</button>
+    <Button styleProp=background-color:#910;color:#ffff;border:none; label="INICIAR BATALHA" estado="secondbattle" song="audio3.play();" />
 
 <p class="back">‎</p>
 </div>
@@ -44,24 +48,6 @@
 </main>
 
 <style>
-
-    button.menu {
-        font-size: 18px;
-        outline: none;
-        transition: 300ms;
-        cursor: pointer;
-        border: none;
-        padding: 20px;
-        margin-top: 25px;
-        margin-bottom: 15px;
-        background-color: red;
-        color: white;
-    }
-    
-    button.menu:hover {
-  background-color: rgb(80, 0, 0);
-  cursor: pointer;
-}
 
     .adamimg {
         width: 250px;
@@ -84,9 +70,8 @@
     .box {
         float: left;
         width: 50%;
-        height: 220px;
+        height: 310px;
         border-radius: 5px;
-        box-shadow: 0px 0px 1px black;
         overflow: hidden;
     }
 
@@ -117,6 +102,28 @@
             opacity: 1;
         }
     }
+
+    .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
 
 </style>

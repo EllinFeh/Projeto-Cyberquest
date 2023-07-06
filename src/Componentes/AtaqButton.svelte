@@ -31,7 +31,7 @@
         animation: fadeInText 2s;
         font-size: 17px;
         border-style: solid;
-        width: 160px;
+        width: 180px;
         font-family: inherit;
         padding: 1em;
         margin: 1em;

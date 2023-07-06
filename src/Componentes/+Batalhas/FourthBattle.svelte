@@ -64,7 +64,7 @@
               textoExibido.set('');
             }, 3500);
           }
-          if(hpenemy < 0){
+          if(hpenemy <= 0){
             hpenemy = 0
           }
         }
@@ -90,8 +90,8 @@
                  textoExibido.set('');
                }, 3500);
           }
-          if(hpadam < 0){
-            hpadam = 0
+          if(hpenemy <= 0){
+            hpenemy = 0
           } 
           winorOver();
     }
@@ -156,12 +156,12 @@
             mostrarCont.set(true);
           }, 4000);
   
-          if(hpenemy < 0){
-            hpenemy = 0
+          if(hpadam <= 0){
+            hpadam = 0
           } 
           winorOver();
   
-            }else if(dado4 > 3 && dado4 <= 8){
+            }else if(dado4 > 4 && dado4 <= 8){
               mostrarCont.set(false);
               enemy.PulsoDeDestruição(prota)
               hpadam = prota.hp;
@@ -172,8 +172,8 @@
             mostrarCont.set(true);
           }, 2000);
   
-          if(hpenemy < 0){
-            hpenemy = 0
+          if(hpadam <= 0){
+            hpadam = 0
           } 
           winorOver();
   
@@ -188,8 +188,8 @@
             mostrarCont.set(true);
           }, 2000);
   
-          if(hpenemy < 0){
-            hpenemy = 0
+          if(hpadam <= 0){
+            hpadam = 0
           } 
           winorOver();
             

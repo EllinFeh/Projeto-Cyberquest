@@ -5,7 +5,7 @@
   import { textoExibido,mostrarCont } from '../../personagens/store';
   import { onMount, afterUpdate} from 'svelte';
  
-  const prota = new Adam(150,8,19);
+  const prota = new Adam(150,9,19);
   const enemy = new Inimigo(200,11,17);
 
   //barra de vida adam e inimigo:
@@ -64,7 +64,7 @@
             textoExibido.set('');
           }, 3500);
         }
-        if(hpenemy < 0){
+        if(hpenemy <= 0){
           hpenemy = 0
         }
       }
@@ -90,8 +90,8 @@
                textoExibido.set('');
              }, 3500);
         }
-        if(hpadam < 0){
-          hpadam = 0
+        if(hpenemy <= 0){
+          hpenemy = 0
         } 
         winorOver();
   }
@@ -156,8 +156,8 @@
           mostrarCont.set(true);
         }, 4000);
 
-        if(hpenemy < 0){
-          hpenemy = 0
+        if(hpadam <= 0){
+          hpadam = 0
         } 
         winorOver();
 
@@ -172,8 +172,8 @@
           mostrarCont.set(true);
         }, 2000);
 
-        if(hpenemy < 0){
-          hpenemy = 0
+        if(hpadam <= 0){
+          hpadam = 0
         } 
         winorOver();
 
@@ -188,8 +188,8 @@
           mostrarCont.set(true);
         }, 2000);
 
-        if(hpenemy < 0){
-          hpenemy = 0
+        if(hpadam <= 0){
+          hpadam = 0
         } 
         winorOver();
           

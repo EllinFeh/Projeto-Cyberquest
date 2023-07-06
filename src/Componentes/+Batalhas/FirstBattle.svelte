@@ -6,7 +6,7 @@
   import { onMount, afterUpdate} from 'svelte';
 
  
-  const prota = new Adam(100,6,19);
+  const prota = new Adam(100,7,19);
   const enemy = new Inimigo(150,9,15);
 
   //barra de vida adam e inimigo:
@@ -20,9 +20,11 @@
  
 function winorOver(){
   if(hpadam<=0){
+    
     trocarEstadoDoJogo('overdisplay')
   }
   else if(hpenemy<=0){
+    
     trocarEstadoDoJogo('windisplay')
   }
 }
@@ -66,7 +68,7 @@ function winorOver(){
             textoExibido.set('');
           }, 3500);
         }
-        if(hpenemy < 0){
+        if(hpenemy <= 0){
           hpenemy = 0
         }
         winorOver();
@@ -74,7 +76,7 @@ function winorOver(){
 
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
-        if (dado2 >= 7) {
+        if (dado2 >= 6) {
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
         textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -92,7 +94,7 @@ function winorOver(){
                textoExibido.set('');
              }, 3500);
         }
-        if(hpenemy < 0){
+        if(hpenemy <= 0){
           hpenemy = 0
     }
     winorOver();
@@ -160,7 +162,7 @@ function winorOver(){
           mostrarCont.set(true);
         }, 4000);
 
-        if(hpadam < 0){
+        if(hpadam <= 0){
           hpadam = 0
         }
         winorOver();
@@ -175,7 +177,7 @@ function winorOver(){
           mostrarCont.set(true);
         }, 2000);
 
-          if(hpadam < 0){
+          if(hpadam <= 0){
           hpadam = 0
         }
         winorOver();
@@ -191,7 +193,7 @@ function winorOver(){
           mostrarCont.set(true);
         }, 2000);
 
-          if(hpadam < 0){
+          if(hpadam <= 0){
           hpadam = 0
         }
 
@@ -207,7 +209,7 @@ function winorOver(){
           mostrarCont.set(true);
         }, 6000);
 
-          if(hpadam < 0){
+          if(hpadam <= 0){
           hpadam = 0
         }
 

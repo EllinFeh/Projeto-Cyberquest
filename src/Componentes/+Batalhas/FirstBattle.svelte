@@ -71,7 +71,6 @@ function winorOver(){
         if(hpenemy <= 0){
           hpenemy = 0
         }
-        winorOver();
       }
 
   function ataque2Prota(){
@@ -97,7 +96,6 @@ function winorOver(){
         if(hpenemy <= 0){
           hpenemy = 0
     }
-    winorOver();
   }
   
   function chamarcura(){
@@ -152,6 +150,7 @@ function winorOver(){
           
           let dado4 = Math.floor(Math.random() * 15);
           if(dado4 <= 6){
+            if (hpenemy>0) {
             mostrarCont.set(false);
             enemy.MarteloDeFerro(prota);
             hpadam = prota.hp;
@@ -165,9 +164,14 @@ function winorOver(){
         if(hpadam <= 0){
           hpadam = 0
         }
+      } else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
         winorOver();
 
-          }else if(dado4 > 6 && dado4 <= 9){
+          }else if(dado4 > 6 && dado4 <= 10){
+            if (hpenemy>0) {
             mostrarCont.set(false);
             enemy.PulsoDeDestruição(prota)
             hpadam = prota.hp;
@@ -180,9 +184,14 @@ function winorOver(){
           if(hpadam <= 0){
           hpadam = 0
         }
+      }else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
         winorOver();
 
-        }else if (dado4 > 9 && dado4 <= 11){
+        }else if (dado4 > 10 && dado4 <= 12){
+          if (hpenemy>0) {
           mostrarCont.set(false);
           enemy.TempestadeDeEletrons(prota)
           hpadam = prota.hp;
@@ -196,13 +205,16 @@ function winorOver(){
           if(hpadam <= 0){
           hpadam = 0
         }
-
+      } else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
         winorOver();
-          
+
         }else{
           mostrarCont.set(false);
-          textoExibido.set('Ataque do inimigo falhou!');
-          console.log('estou sendo chamado')
+          textoExibido.set('Seu inimigo errou o ataque!');
+          winorOver();
 
           setTimeout(() => {
           textoExibido.set('');
@@ -214,7 +226,7 @@ function winorOver(){
         }
 
         }
-
+        
       }, 4000);
     }
     
@@ -314,6 +326,7 @@ function winorOver(){
                 label="TRIROCKET"
                 FuncTwo={ataqueEnemy}
                 Func={ataque1Prota}
+                song="trirocket.play();"
               />
             </div>
 
@@ -325,6 +338,7 @@ function winorOver(){
                 label="SPRAYTRANSFER"
                 FuncTwo={ataqueEnemy}
                 Func={ataque2Prota}
+                song="spray.play();"
               />
             </div>
 
@@ -335,6 +349,7 @@ function winorOver(){
                 styleProp="background-color:#3b79fe;"
                 label="MEDBAY"
                 Func={chamarcura}
+                song="medbay.play();"
               />
             </div>
           </div>

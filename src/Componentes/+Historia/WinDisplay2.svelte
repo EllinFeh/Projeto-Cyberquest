@@ -2,6 +2,7 @@
     import Button from "../Button.svelte";
    </script>
    
+   <audio autoplay loop src="./audio/youwin.mp3" />
    
    <main>
        
@@ -15,17 +16,17 @@
             <img src="./images/you-win.gif" alt="Win">
            </div>
            <h1>ADAM VENCEU!</h1>
-           <h2>Subiu de nivel!</h2>
+           <h2>Subiu de nivel: 4</h2>
         <div>
            <div class="">
                <div class="box" id="imgAdam" >
                    <img class="adamimg" src="./images/adam.gif" alt="Adam" />
-                  <h2>+HP +DEF +ATQ</h2>
+                  <h2>Adam está mais forte!</h2>
                 </div>
            </div>
        </div>
        
-       <Button label="OK!" estado="iniciarbatalha4" song="audio3.play();" />
+       <Button label="OK!" estado="iniciarbatalha4"/>
    
    <p class="back">‎</p>
    </div>
@@ -47,7 +48,7 @@
        }
    
        .black{
-           background-color:rgba(39, 39, 39, 0.2);
+        background-color:rgba(0, 0, 0, 0.4);
        }
    
        .box {
@@ -68,7 +69,7 @@
        }
 
        h2 {
-           margin-top: -60px;
+           margin-top: -30px;
            text-align: center;
            color: rgb(0, 0, 0);
            animation: fadeInText 1s;
@@ -77,6 +78,8 @@
            background-color: rgba(255, 255, 255, 0.164);
            margin-left: 40%;
            margin-right: 40%;
+           border: solid 1px;
+           border-radius: 7px;
        }
 
    

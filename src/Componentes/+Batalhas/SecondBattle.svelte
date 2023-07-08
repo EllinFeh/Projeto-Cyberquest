@@ -23,13 +23,8 @@
   }
   else if(hpenemy<=0){
     trocarEstadoDoJogo('windisplay1');
-    
   }
 }
-
-  const attHP = (newHP) => {
-    hp = newHP > hpMax ? hpMax : newHP;
-  };
 
   const calculateBarWidth = () => {
     barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
@@ -68,7 +63,6 @@
           hpenemy = 0
         }
       }
-      winorOver();
 
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
@@ -93,7 +87,6 @@
         if(hpenemy <= 0){
           hpenemy = 0
         } 
-        winorOver();
   }
   
   function chamarcura(){
@@ -141,27 +134,35 @@
     }
       
       function ataqueEnemy(){
-        setTimeout(() => {
-          
+      setTimeout(() => {
           
           let dado4 = Math.floor(Math.random() * 15);
-          if(dado4 <= 6){
-            mostrarCont.set(false);
-            enemy.MarteloDeFerro(prota);
-            hpadam = prota.hp;
-            textoExibido.set('Seu inimigo usou Golpes esmagadores!');
+          if(dado4 <= 5){
+            if (hpenemy>0) {
+              
+              mostrarCont.set(false);
+              enemy.MarteloDeFerro(prota);
+              hpadam = prota.hp;
+              textoExibido.set('Seu inimigo usou Golpes Esmagadores!');
 
-            setTimeout(() => {
-          textoExibido.set('');
+              
+              setTimeout(() => {
+                textoExibido.set('');
+                mostrarCont.set(true);
+              }, 4000);
+              
+              if(hpadam <= 0){
+                hpadam = 0
+              } 
+            }
+            else{
+        textoExibido.set('');
           mostrarCont.set(true);
-        }, 4000);
-
-        if(hpadam <= 0){
-          hpadam = 0
-        } 
+        }
         winorOver();
 
           }else if(dado4 > 6 && dado4 <= 9){
+            if (hpenemy>0) {
             mostrarCont.set(false);
             enemy.PulsoDeDestruição(prota)
             hpadam = prota.hp;
@@ -175,9 +176,15 @@
         if(hpadam <= 0){
           hpadam = 0
         } 
+           }
+           else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
         winorOver();
 
         }else if (dado4 > 9 && dado4 <= 11){
+          if (hpenemy>0) {
           mostrarCont.set(false);
           enemy.TempestadeDeEletrons(prota)
           hpadam = prota.hp;
@@ -191,11 +198,17 @@
         if(hpadam <= 0){
           hpadam = 0
         } 
+      }
+      else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
         winorOver();
           
         }else{
           mostrarCont.set(false);
           textoExibido.set('Seu inimigo errou o ataque!');
+          winorOver();
 
           setTimeout(() => {
           textoExibido.set('');
@@ -206,6 +219,7 @@
         }
 
       }, 4000);
+    
     }
     
     
@@ -304,6 +318,7 @@
                 label="TRIROCKET"
                 FuncTwo={ataqueEnemy}
                 Func={ataque1Prota}
+                song="trirocket.play();"
               />
             </div>
 
@@ -315,6 +330,7 @@
                 label="SPRAYTRANSFER"
                 FuncTwo={ataqueEnemy}
                 Func={ataque2Prota}
+                song="spray.play();"
               />
             </div>
 
@@ -325,6 +341,7 @@
                 styleProp="background-color:#00744f;"
                 label="MEDBAY"
                 Func={chamarcura}
+                song="medbay.play();"
               />
             </div>
           </div>

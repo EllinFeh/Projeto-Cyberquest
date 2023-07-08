@@ -3,7 +3,7 @@
     import { trocarEstadoDoJogo } from "../../Estado";
    </script>
    
-   
+   <audio autoplay loop src="./audio/gameover.mp3" />
    <main>
        
        <div
@@ -18,7 +18,7 @@
            <h1>ADAM FOI DERROTADO!</h1>
       
        
-       <Button label="OK!" estado="menu" song="audio3.play();" />
+       <Button styleProp="color:#fff; background-color: rgb(130, 19, 19)" label="OK!" estado="menu" song="audio3.play();" />
    
    <p class="back">‎</p>
    </div>

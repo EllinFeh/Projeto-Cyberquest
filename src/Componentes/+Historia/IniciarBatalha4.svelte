@@ -31,7 +31,7 @@
             <div class="box tooltip" id="imgInimigo">
                 <span class="tooltiptext">ESTATISTICAS: <br>
                     HP: 250<br>
-                    ATQ: 16<br>
+                    ATQ: 15<br>
                     DEF: 20<br>
                 </span>
                 <img class="inmg" src="./images/boss.gif" alt="Inimigo" />

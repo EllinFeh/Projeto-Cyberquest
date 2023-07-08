@@ -5,12 +5,12 @@
     import { textoExibido,mostrarCont } from '../../personagens/store';
     import { onMount, afterUpdate} from 'svelte';
    
-    const prota = new Adam(190,13,24);
-    const enemy = new Inimigo(250,16,20);
+    const prota = new Adam(200,13,24);
+    const enemy = new Inimigo(260,15,20);
   
     //barra de vida adam e inimigo:
-    const hpMaxAdam = 190;
-    const hpMaxEnemy = 250;
+    const hpMaxAdam = 200;
+    const hpMaxEnemy = 260;
   
     let barWidth = 100;
     let barWidthenemy = 100;
@@ -26,10 +26,6 @@
       
     }
   }
-  
-    const attHP = (newHP) => {
-      hp = newHP > hpMax ? hpMax : newHP;
-    };
   
     const calculateBarWidth = () => {
       barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
@@ -68,11 +64,10 @@
             hpenemy = 0
           }
         }
-        winorOver();
   
     function ataque2Prota(){
       let dado2 = Math.floor(Math.random() * 15)
-          if (dado2 >= 8) {
+          if (dado2 >= 6) {
           prota.spraytransfer(enemy);
           hpenemy = enemy.hp;
           textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -93,7 +88,6 @@
           if(hpenemy <= 0){
             hpenemy = 0
           } 
-          winorOver();
     }
     
     function chamarcura(){
@@ -146,6 +140,7 @@
             
             let dado4 = Math.floor(Math.random() * 15);
             if(dado4 <= 4){
+              if (hpenemy>0) {
               mostrarCont.set(false);
               enemy.MarteloDeFerro(prota);
               hpadam = prota.hp;
@@ -159,9 +154,15 @@
           if(hpadam <= 0){
             hpadam = 0
           } 
+              }
+              else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
           winorOver();
   
             }else if(dado4 > 4 && dado4 <= 8){
+              if (hpenemy>0) {
               mostrarCont.set(false);
               enemy.PulsoDeDestruição(prota)
               hpadam = prota.hp;
@@ -175,9 +176,15 @@
           if(hpadam <= 0){
             hpadam = 0
           } 
+        }
+        else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
           winorOver();
   
           }else if (dado4 > 8 && dado4 <= 12){
+            if (hpenemy>0) {
             mostrarCont.set(false);
             enemy.TempestadeDeEletrons(prota)
             hpadam = prota.hp;
@@ -191,12 +198,18 @@
           if(hpadam <= 0){
             hpadam = 0
           } 
+        }
+        else{
+        textoExibido.set('');
+          mostrarCont.set(true);
+        }
           winorOver();
             
           }else{
             mostrarCont.set(false);
             textoExibido.set('Seu inimigo errou o ataque!');
-  
+            winorOver();
+
             setTimeout(() => {
             textoExibido.set('');
             mostrarCont.set(true);
@@ -216,7 +229,7 @@
   <main>
     <div
       class="container-page"
-      style="background-image: url(/images/fundos/Fundobatle3.png);"
+      style="background-image: url(/images/fundos/Fundobatle4.png);"
     >
       <div class="black">
         <button
@@ -241,7 +254,7 @@
                     height="13"
                     fill="currentColor"
                     class="bi bi-heart-fill"
-                    viewBox="0 0 16 16"
+                    viewBox="0 0 15 15"
                   >
                     <path
                       fill-rule="evenodd"
@@ -268,7 +281,7 @@
                     height="13"
                     fill="currentColor"
                     class="bi bi-heart-fill"
-                    viewBox="0 0 16 16"
+                    viewBox="0 0 15 15"
                   >
                     <path
                       fill-rule="evenodd"
@@ -302,6 +315,7 @@
                   label="TRIROCKET"
                   FuncTwo={ataqueEnemy}
                   Func={ataque1Prota}
+                  song="trirocket.play();"
                 />
               </div>
   
@@ -313,6 +327,7 @@
                   label="SPRAYTRANSFER"
                   FuncTwo={ataqueEnemy}
                   Func={ataque2Prota}
+                  song="spray.play();"
                 />
               </div>
   
@@ -323,6 +338,7 @@
                   styleProp="background-color:#cf03fc;"
                   label="MEDBAY"
                   Func={chamarcura}
+                  song="medbay.play();"
                 />
               </div>
             </div>

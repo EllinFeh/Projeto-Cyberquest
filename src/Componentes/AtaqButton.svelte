@@ -5,6 +5,7 @@
     export let styleProp = "";
     export let song = "";
     import { textoExibido } from '../personagens/store';
+
 </script>
 
 <div>

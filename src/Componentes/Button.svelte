@@ -35,7 +35,7 @@
         padding: 0.7em;
         margin:0.1em;
         box-sizing: border-box;
-        border: solid rgba(252, 252, 252, 0.536);
+        border: solid 2px rgb(252, 252, 252);
         border-radius: 18px;
         user-select: none;
     }

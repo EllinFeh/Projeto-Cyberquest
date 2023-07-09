@@ -367,7 +367,7 @@ onMount(() => {
             </div>
   
             <p class="presetname">Radagast</p>
-            <img class:inmg={blinking2} src="./images/inimigo3.gif" alt="Inimigo" style="width: 370px; height: 220px; margin-top: 30px;"/>
+            <img class:inmg={blinking2} src="./images/inimigo3.gif" alt="Inimigo" style="width: 370px; height: 170px; margin-top: 30px;"/>
           </div>
         </div>
   

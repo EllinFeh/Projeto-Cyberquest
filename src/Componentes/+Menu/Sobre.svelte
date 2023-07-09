@@ -2,18 +2,14 @@
   import VoltarMenu from "../VoltarMenu.svelte";
   </script>
 
-<svelte:head>
-  <link rel="stylesheet" href="/styles/sobre.css" />
-</svelte:head>
-
 <div
   class="container-page"
-  style="background-image: url(./images/Fundos/backsobre.jpg);"
+  style="background-image: url(./images/Fundos/backmenu.gif);"
 >
   <h1>Sobre</h1>
 
 <div class="align-colum">
-  <p class="explain">
+  <p class="explain cont cont2">
     Somos um coletivo composto por três indivíduos jovens que adquiriram um
     projeto com o objetivo de desenvolver um jogo de RPG inovador, com a
     intenção de romper com os padrões predominantes no gênero. Enquanto a
@@ -24,6 +20,8 @@
   </p>
 </div>
   
+<div class="cont">
+
   <h2>Desenvolvedores:</h2>
   <div>
     <div>
@@ -45,8 +43,26 @@
       </p>
     </div>
 
+    </div>
+  </div>
+
     <VoltarMenu />
 
     <p class="back"></p>
-  </div>
 </div>
+
+
+<style>
+  .cont{
+    margin-left: 42%;
+    margin-right: 42%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.44);
+  }
+
+  .cont2{
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+</style>

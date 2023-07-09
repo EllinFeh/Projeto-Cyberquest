@@ -26,6 +26,72 @@
   }
 }
 
+let blinking = false;
+
+function piscarImage() {
+  blinking = true;
+
+  setTimeout(() => {
+      blinking = false;
+      setTimeout(() => {
+        blinking = true;
+        setTimeout(() => {
+          blinking = false;
+          setTimeout(() => {
+            blinking = true;
+            setTimeout(() => {
+              blinking = false;
+              setTimeout(() => {
+                blinking = true;
+                setTimeout(() => {
+                  blinking = false;
+                }, 160);
+              }, 160);
+            }, 160);
+          }, 160);
+        }, 160);
+      }, 160);
+    }, 1000);
+  }
+
+onMount(() => {
+  piscarImage();
+});
+
+
+
+let blinking2 = false;
+
+function piscarImageInmg() {
+  blinking2 = true;
+
+  setTimeout(() => {
+      blinking2 = false;
+      setTimeout(() => {
+        blinking2 = true;
+        setTimeout(() => {
+          blinking2 = false;
+          setTimeout(() => {
+            blinking2 = true;
+            setTimeout(() => {
+              blinking2 = false;
+              setTimeout(() => {
+                blinking2 = true;
+                setTimeout(() => {
+                  blinking2 = false;
+                }, 160);
+              }, 160);
+            }, 160);
+          }, 160);
+        }, 160);
+      }, 160);
+    }, 1000);
+  }
+
+onMount(() => {
+  piscarImage();
+});
+
   const calculateBarWidth = () => {
     barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
     barWidth = (hpadam / hpMaxAdam) * 100;
@@ -42,6 +108,7 @@
   function ataque1Prota() {
     let dado1 = Math.floor(Math.random() * 10)
         if (dado1 >= 3) {
+            piscarImageInmg();
             prota.trirocket(enemy)
             hpenemy = enemy.hp
 
@@ -67,6 +134,7 @@
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
         if (dado2 >= 8) {
+        piscarImageInmg();
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
         textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -106,6 +174,7 @@
   function ataque3Prota(){
     let dado3 = Math.floor(Math.random() * 15)
         if (dado3 >= 6) {
+          piscarImage();
           prota.medbay(prota);
           hpadam= prota.hp;
           textoExibido.set('Adam se curou! Vez do inimigo!');
@@ -139,7 +208,7 @@
           let dado4 = Math.floor(Math.random() * 15);
           if(dado4 <= 5){
             if (hpenemy>0) {
-              
+              piscarImage();
               mostrarCont.set(false);
               enemy.MarteloDeFerro(prota);
               hpadam = prota.hp;
@@ -163,6 +232,7 @@
 
           }else if(dado4 > 6 && dado4 <= 9){
             if (hpenemy>0) {
+            piscarImage();
             mostrarCont.set(false);
             enemy.PulsoDeDestruição(prota)
             hpadam = prota.hp;
@@ -185,6 +255,7 @@
 
         }else if (dado4 > 9 && dado4 <= 11){
           if (hpenemy>0) {
+          piscarImage();
           mostrarCont.set(false);
           enemy.TempestadeDeEletrons(prota)
           hpadam = prota.hp;
@@ -269,10 +340,10 @@
           </div>
 
           <p class="presetname">Adam</p>
-          <img class="adamimg" src="./images/adam.gif" alt="Adam" />
+          <img class:adamimg={blinking} src="./images/adam.gif" alt="Adam" style="width: 250px; height: 220px;"/>
         </div>
 
-        <div><img class="vs" src="./images/vs.png" alt=""></div>
+        <div> <img class="vs" src="./images/vs.png" alt=""></div>
 
         <div class="box" id="imgInimigo">
           <div class="hpini">
@@ -296,7 +367,7 @@
           </div>
 
           <p class="presetname">Torget</p>
-          <img class="inmg" src="./images/inimigo2.gif" alt="Inimigo" />
+          <img class:inmg={blinking2} src="./images/inimigo2.gif" alt="Inimigo" style="width: 250px; height: 180px; margin-top: 30px;"/>
         </div>
       </div>
 
@@ -412,14 +483,11 @@
   .adamimg {
     width: 250px;
     height: 220px;
-    animation: fadeInText 5s;
+    animation: fadeInText 0.9s;
   }
 
   .inmg {
-    width: 250px;
-    height: 160px;
-    animation: fadeInText 5s;
-    margin-top: 30px;
+    animation: fadeInText 0.9s;
   }
 
   p {

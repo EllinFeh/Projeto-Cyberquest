@@ -30,9 +30,72 @@ function winorOver(){
 }
 
 
-  const attHP = (newHP) => {
-    hp = newHP > hpMax ? hpMax : newHP;
-  };
+let blinking = false;
+
+function piscarImage() {
+  blinking = true;
+
+  setTimeout(() => {
+      blinking = false;
+      setTimeout(() => {
+        blinking = true;
+        setTimeout(() => {
+          blinking = false;
+          setTimeout(() => {
+            blinking = true;
+            setTimeout(() => {
+              blinking = false;
+              setTimeout(() => {
+                blinking = true;
+                setTimeout(() => {
+                  blinking = false;
+                }, 160);
+              }, 160);
+            }, 160);
+          }, 160);
+        }, 160);
+      }, 160);
+    }, 1000);
+  }
+
+onMount(() => {
+  piscarImage();
+});
+
+
+
+let blinking2 = false;
+
+function piscarImageInmg() {
+  blinking2 = true;
+
+  setTimeout(() => {
+      blinking2 = false;
+      setTimeout(() => {
+        blinking2 = true;
+        setTimeout(() => {
+          blinking2 = false;
+          setTimeout(() => {
+            blinking2 = true;
+            setTimeout(() => {
+              blinking2 = false;
+              setTimeout(() => {
+                blinking2 = true;
+                setTimeout(() => {
+                  blinking2 = false;
+                }, 160);
+              }, 160);
+            }, 160);
+          }, 160);
+        }, 160);
+      }, 160);
+    }, 1000);
+  }
+
+onMount(() => {
+  piscarImage();
+});
+
 
   const calculateBarWidth = () => {
     barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
@@ -50,10 +113,9 @@ function winorOver(){
   function ataque1Prota() {
     let dado1 = Math.floor(Math.random() * 10)
         if (dado1 >= 3) {
+            piscarImageInmg();
             prota.trirocket(enemy)
             hpenemy = enemy.hp
-            console.log(enemy.hp)
-
             textoExibido.set('Adam acertou TriRocket! Vez do inimigo!');
             mostrarCont.set(false);
          setTimeout(() => {
@@ -76,6 +138,7 @@ function winorOver(){
   function ataque2Prota(){
     let dado2 = Math.floor(Math.random() * 15)
         if (dado2 >= 6) {
+        piscarImageInmg();
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
         textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -115,6 +178,7 @@ function winorOver(){
   function ataque3Prota(){
     let dado3 = Math.floor(Math.random() * 15)
         if (dado3 >= 7) {
+          piscarImage();
           prota.medbay(prota);
           hpadam= prota.hp;
           textoExibido.set('Adam se curou! Vez do inimigo!');
@@ -151,6 +215,7 @@ function winorOver(){
           let dado4 = Math.floor(Math.random() * 15);
           if(dado4 <= 6){
             if (hpenemy>0) {
+            piscarImage();
             mostrarCont.set(false);
             enemy.MarteloDeFerro(prota);
             hpadam = prota.hp;
@@ -172,6 +237,7 @@ function winorOver(){
 
           }else if(dado4 > 6 && dado4 <= 10){
             if (hpenemy>0) {
+              piscarImage();
             mostrarCont.set(false);
             enemy.PulsoDeDestruição(prota)
             hpadam = prota.hp;
@@ -192,6 +258,7 @@ function winorOver(){
 
         }else if (dado4 > 10 && dado4 <= 12){
           if (hpenemy>0) {
+            piscarImage();
           mostrarCont.set(false);
           enemy.TempestadeDeEletrons(prota)
           hpadam = prota.hp;
@@ -277,7 +344,7 @@ function winorOver(){
           </div>
 
           <p class="presetname">Adam</p>
-          <img class="adamimg" src="./images/adam.gif" alt="Adam" />
+          <img class:adamimg={blinking} src="./images/adam.gif" alt="Adam" style="width: 250px; height: 220px;" />
         </div>
 
         <div><img class="vs" src="./images/vs.png" alt=""></div>
@@ -304,7 +371,7 @@ function winorOver(){
           </div>
 
           <p class="presetname">Morgred</p>
-          <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />
+          <img class:inmg={blinking2} src="./images/inimigo1.gif" alt="Inimigo" style="width: 250px; height: 160px; margin-top: 30px;"/>
         </div>
       </div>
 
@@ -362,6 +429,8 @@ function winorOver(){
 </main>
 
 <style>
+
+
   .hpadam,
   .hpini {
     width: 290px;
@@ -389,24 +458,26 @@ function winorOver(){
     transition: 300ms;
     animation: fadeInText 5s;
   }
+  
 
+  
   .vs{
     width: 50px;
     height: 50px;
     position: absolute;
     top: 320px;
     left: 50%;
-
+    
   }
-
+  
   .container-page {
     animation: fadeInText 4s;
   }
-
+  
   .black {
     background-color: rgba(8, 8, 8, 0.7);
   }
-
+  
   .presetname {
     color: #ffffff;
     padding: 0.5em;
@@ -417,18 +488,17 @@ function winorOver(){
     text-shadow: #151515 2px 2px 2px;
     animation: fadeInText 5s;
   }
-
+  
   .adamimg {
+    animation: fadeInText 1s;
     width: 250px;
     height: 220px;
-    animation: fadeInText 5s;
   }
-
+  
   .inmg {
     width: 250px;
     height: 160px;
-    animation: fadeInText 5s;
-    margin-top: 30px;
+    animation: fadeInText 1s;
   }
 
   p {

@@ -8,8 +8,8 @@
 
 <style>
     .btn {
-        color: #333;
-        background-color: rgb(175, 229, 253);
+        color: #000000;
+        background-color:  rgb(247, 169, 0);
         outline: none;
         transition: 300ms;
         animation: fadeInText 1s;
@@ -22,13 +22,13 @@
         padding: 0.7em;
         margin:0.1em;
         box-sizing: border-box;
-        border: solid rgba(252, 252, 252, 0.536);
+        border: solid 2px rgb(0, 0, 0);
         border-radius: 18px;
         user-select: none;
     }
 
     .btn:hover {
-        background-color: rgb(253, 171, 253);
+        background-color: rgb(203, 148, 25);
         cursor: pointer;
     }
 

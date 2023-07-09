@@ -5,6 +5,7 @@
 <div class="container-page" style="background-image: url(/images/Fundos/backmenu.gif);">
   <div class="black">
     <h1>CYBERQUEST</h1>
+    <h2>Explorando segredos do ciberespaço</h2>
     
     <div class="align-column">
       <Button label="Jogar" estado="jogar"/>
@@ -39,6 +40,10 @@
 
 </div>
 <style>
+  h2{
+    margin-top: -90px;
+    margin-bottom: 90px;
+  }
   .black{
     background-color: rgba(0, 0, 0, 0.4);
   }

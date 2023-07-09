@@ -28,11 +28,11 @@ html{
 }
 
 h1 {
-  color: rgb(175, 229, 253);
+  color: rgb(247, 169, 0);
   font-family: pixel;
   font-size: 70px;
   user-select: none;
-  text-shadow: #FFF 1px 1px 1px;
+  text-shadow: #000000 1px 1px 1px;
   margin:0 ;
   margin-bottom:90px;
   padding-top: 40px;
@@ -69,14 +69,14 @@ h3 {
 }
 
 a {
-  color: rgb(175, 229, 253);
+  color: rgb(255, 255, 255);
   text-decoration: none;
   animation: fadeInText 1s;
 }
 
 a:hover {
   text-decoration: underline;
-  color: rgb(250, 172, 250);
+  color: rgb(0, 187, 255);
 }
 
 label {

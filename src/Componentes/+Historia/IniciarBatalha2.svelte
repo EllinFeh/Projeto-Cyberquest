@@ -7,7 +7,7 @@
     
     <div
     class="container-page"
-    style="background-image: url(/images/fundos/Fundobatle2.png);"
+    style="background-image: url(/images/Fundos/Fundobatle2.png);"
     >
     <div class="black">
     

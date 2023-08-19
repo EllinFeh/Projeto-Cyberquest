@@ -3,13 +3,26 @@
   import { Adam, Inimigo,} from "../../personagens/Protagonista"
   import AtaqButton from "../AtaqButton.svelte";
   import { textoExibido,mostrarCont } from '../../personagens/store';
-  import { onMount, afterUpdate} from 'svelte';
+  import { onMount, afterUpdate, onDestroy} from 'svelte';
 
  
   const prota = new Adam(100,7,19);
   const enemy = new Inimigo(150,9,15);
 
+// Efeito fogo
+
+let isVisible = false;
+
+  function toggleImage() {
+    isVisible = !isVisible;
+    setTimeout(() => {
+    clearInterval(isVisible);
+    isVisible = false;
+  }, 1000);
+  }
+
   //barra de vida adam e inimigo:
+
   const hpMaxAdam = 100;
   const hpMaxEnemy = 150;
 
@@ -29,73 +42,44 @@ function winorOver(){
   }
 }
 
+//Piscar Adam
 
-let blinking = false;
+let blinking = true;
 
 function piscarImage() {
-  blinking = true;
+  blinking = false;
+  const blinkInterval = setInterval(() => {
+    blinking = !blinking;
+  }, 100);
 
   setTimeout(() => {
-      blinking = false;
-      setTimeout(() => {
-        blinking = true;
-        setTimeout(() => {
-          blinking = false;
-          setTimeout(() => {
-            blinking = true;
-            setTimeout(() => {
-              blinking = false;
-              setTimeout(() => {
-                blinking = true;
-                setTimeout(() => {
-                  blinking = false;
-                }, 160);
-              }, 160);
-            }, 160);
-          }, 160);
-        }, 160);
-      }, 160);
-    }, 1000);
-  }
+    clearInterval(blinkInterval);
+    blinking = false;
+  }, 1500);
+}
 
-onMount(() => {
-  piscarImage();
-});
+onMount(piscarImage);
 
 
+// Piscar Inimigo
 
-let blinking2 = false;
+let blinking2 = true;
 
 function piscarImageInmg() {
-  blinking2 = true;
+  blinking2 = false;
+  const blinkInterval = setInterval(() => {
+    blinking2 = !blinking2;
+  }, 100);
 
   setTimeout(() => {
-      blinking2 = false;
-      setTimeout(() => {
-        blinking2 = true;
-        setTimeout(() => {
-          blinking2 = false;
-          setTimeout(() => {
-            blinking2 = true;
-            setTimeout(() => {
-              blinking2 = false;
-              setTimeout(() => {
-                blinking2 = true;
-                setTimeout(() => {
-                  blinking2 = false;
-                }, 160);
-              }, 160);
-            }, 160);
-          }, 160);
-        }, 160);
-      }, 160);
-    }, 1000);
-  }
+    clearInterval(blinkInterval);
+    blinking2 = false;
+  }, 1500);
+}
 
-onMount(() => {
-  piscarImage();
-});
+onMount(piscarImageInmg);
 
+//calcular percentual de vida
 
   const calculateBarWidth = () => {
     barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
@@ -109,11 +93,14 @@ onMount(() => {
   afterUpdate(() => {
     calculateBarWidth();
   });
+
+  //Funções de ataque do ADAM
   
   function ataque1Prota() {
     let dado1 = Math.floor(Math.random() * 10)
         if (dado1 >= 3) {
             piscarImageInmg();
+            toggleImage ();
             prota.trirocket(enemy)
             hpenemy = enemy.hp
             textoExibido.set('Adam acertou TriRocket! Vez do inimigo!');
@@ -128,7 +115,7 @@ onMount(() => {
           
           setTimeout(() => {
             textoExibido.set('');
-          }, 3500);
+          }, 2500);
         }
         if(hpenemy <= 0){
           hpenemy = 0
@@ -139,6 +126,7 @@ onMount(() => {
     let dado2 = Math.floor(Math.random() * 15)
         if (dado2 >= 6) {
         piscarImageInmg();
+        toggleImage ();
         prota.spraytransfer(enemy);
         hpenemy = enemy.hp;
         textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
@@ -154,7 +142,7 @@ onMount(() => {
 
             setTimeout(() => {
                textoExibido.set('');
-             }, 3500);
+             }, 2500);
         }
         if(hpenemy <= 0){
           hpenemy = 0
@@ -198,7 +186,7 @@ onMount(() => {
             
             setTimeout(() => {
               textoExibido.set('');
-            }, 3500);
+            }, 2500);
           }
         
         setTimeout(() => {
@@ -207,6 +195,9 @@ onMount(() => {
     }
       
 
+
+
+    //Funções de ataque do ADAM
 
       function ataqueEnemy(){
         setTimeout(() => {
@@ -286,7 +277,7 @@ onMount(() => {
           setTimeout(() => {
           textoExibido.set('');
           mostrarCont.set(true);
-        }, 6000);
+        }, 2500);
 
           if(hpadam <= 0){
           hpadam = 0
@@ -305,7 +296,7 @@ onMount(() => {
 <main>
   <div
     class="container-page"
-    style="background-image: url(/images/fundos/Fundobatle1.png);"
+    style="background-image: url(/images/Fundos/Fundobatle1.png);"
   >
     <div class="black">
       <button
@@ -322,6 +313,11 @@ onMount(() => {
       
 
       <div>
+
+        {#if isVisible}
+        <img class="explosion" src="/images/explode.gif" alt="Imagem" />
+      {/if}
+
         <div class="box" id="imgAdam">
           <div class="hpadam">
             <div style="width: {barWidth}%">
@@ -459,7 +455,13 @@ onMount(() => {
     animation: fadeInText 5s;
   }
   
-
+  .explosion{
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    top: 33%;
+    left: 70%;
+  }
   
   .vs{
     width: 50px;

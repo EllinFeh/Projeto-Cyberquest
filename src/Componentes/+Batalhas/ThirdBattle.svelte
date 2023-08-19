@@ -303,7 +303,7 @@ onMount(() => {
   <main>
     <div
       class="container-page"
-      style="background-image: url(/images/fundos/Fundobatle3.png);"
+      style="background-image: url(/images/Fundos/Fundobatle3.png);"
     >
       <div class="black">
         <button

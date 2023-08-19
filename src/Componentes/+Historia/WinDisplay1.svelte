@@ -8,7 +8,7 @@
        
        <div
        class="container-page"
-       style="background-image: url(/images/fundos/Fundovitoria.gif);"
+       style="background-image: url(/images/Fundos/Fundovitoria.gif);"
        >
        <div class="black">
        

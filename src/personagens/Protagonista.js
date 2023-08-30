@@ -1,5 +1,3 @@
-import { textoExibido, mostrarCont } from "./store";
-
 
 class personagem{
     constructor(hp,def,atq){
@@ -13,6 +11,7 @@ class personagem{
 export class Adam extends personagem{
     constructor(hp,def,atq){
         super(hp,def,atq);
+        this.id = "Protagonista";
     }
     
     
@@ -30,19 +29,18 @@ export class Adam extends personagem{
 };
 
 
-
 export class Inimigo extends personagem{
     constructor(hp,def,atq){
         super(hp,def,atq);
         this.id = "Inimigo";
     }
-    MarteloDeFerro(ObjAtacado){
+    attacknemy1(ObjAtacado){
         ObjAtacado.hp = ObjAtacado.hp - (this.atq - ObjAtacado.def);
     }
-    TempestadeDeEletrons(ObjAtacado){
+    attackenemy2(ObjAtacado){
         ObjAtacado.hp = ObjAtacado.hp - (this.atq * 3 - ObjAtacado.def);
     }
-    PulsoDeDestruição(ObjAtacado){
+    attackenemy3(ObjAtacado){
         ObjAtacado.hp = ObjAtacado.hp - (this.atq * 2 - ObjAtacado.def);
     }
 }

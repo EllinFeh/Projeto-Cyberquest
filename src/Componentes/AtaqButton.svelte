@@ -26,7 +26,7 @@
 
     
     .btn {
-        color: #fff;
+        color: #000000;
         background-color: rgb(218, 0, 0);
         transition: 300ms;
         animation: fadeInText 2s;
@@ -39,6 +39,7 @@
         border: none;
         border-radius: 18px;
         user-select: none;
+        text-shadow: #000000 0px 0px 0px;
     }
 
     .btn:hover {

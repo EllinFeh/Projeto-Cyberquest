@@ -1,600 +1,137 @@
 <script>
-  import { trocarEstadoDoJogo } from "../../Estado";
-  import { Adam, Inimigo,} from "../../personagens/Protagonista"
-  import AtaqButton from "../AtaqButton.svelte";
-  import { textoExibido,mostrarCont } from '../../personagens/store';
-  import { onMount, afterUpdate, onDestroy} from 'svelte';
-
- 
-  const prota = new Adam(100,7,19);
-  const enemy = new Inimigo(150,9,15);
-
-// Efeito fogo
-
-let isVisible = false;
-
-  function toggleImage() {
-    isVisible = !isVisible;
-    setTimeout(() => {
-    clearInterval(isVisible);
-    isVisible = false;
-  }, 1000);
-  }
-
-  //barra de vida adam e inimigo:
-
-  const hpMaxAdam = 100;
-  const hpMaxEnemy = 150;
-
-  let barWidth = 100;
-  let barWidthenemy = 100;
-  let hpadam= prota.hp;
-  let hpenemy= enemy.hp;
- 
-function winorOver(){
-  if(hpadam<=0){
-    
-    trocarEstadoDoJogo('overdisplay')
-  }
-  else if(hpenemy<=0){
-    
-    trocarEstadoDoJogo('windisplay')
-  }
-}
-
-//Piscar Adam
-
-let blinking = true;
-
-function piscarImage() {
-  blinking = false;
-  const blinkInterval = setInterval(() => {
-    blinking = !blinking;
-  }, 100);
-
-  setTimeout(() => {
-    clearInterval(blinkInterval);
-    blinking = false;
-  }, 1500);
-}
-
-onMount(piscarImage);
+  import { Adam, Inimigo} from "../../personagens/Protagonista"
+  import Battle from "./Battle.svelte";
+  import {Imagedirectory, Imageenemy} from '../Imagedirectory';
 
 
-// Piscar Inimigo
+  $: backgroundImage = `url( ${Imagedirectory}/Fundobatle1.png)`;
+  $: Enemyimg = ` ${Imageenemy}/inimigo1.gif`;
 
-let blinking2 = true;
-
-function piscarImageInmg() {
-  blinking2 = false;
-  const blinkInterval = setInterval(() => {
-    blinking2 = !blinking2;
-  }, 100);
-
-  setTimeout(() => {
-    clearInterval(blinkInterval);
-    blinking2 = false;
-  }, 1500);
-}
-
-onMount(piscarImageInmg);
-
-//calcular percentual de vida
-
-  const calculateBarWidth = () => {
-    barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
-    barWidth = (hpadam / hpMaxAdam) * 100;
-  };
-
-  onMount(() => {
-    calculateBarWidth();
-  });
-
-  afterUpdate(() => {
-    calculateBarWidth();
-  });
-
-  //Funções de ataque do ADAM
   
-  function ataque1Prota() {
-    let dado1 = Math.floor(Math.random() * 10)
-        if (dado1 >= 3) {
-            piscarImageInmg();
-            toggleImage ();
-            prota.trirocket(enemy)
-            hpenemy = enemy.hp
-            textoExibido.set('Adam acertou TriRocket! Vez do inimigo!');
-            mostrarCont.set(false);
-         setTimeout(() => {
-            textoExibido.set('');
-          }, 3500);
-        }
-        else{
-          textoExibido.set('Adam errou o ataque! Vez do inimigo!');
-          mostrarCont.set(false);
-          
-          setTimeout(() => {
-            textoExibido.set('');
-          }, 2500);
-        }
-        if(hpenemy <= 0){
-          hpenemy = 0
-        }
-      }
+  $: hpMaxAdam = 100;
+  $: hpMaxEnemy = 150;
+ 
+  $: NameEnemy= "Morgred"
+  $: EnemyStyle= "width: 250px; height: 160px; margin-top: 30px;"
 
-  function ataque2Prota(){
-    let dado2 = Math.floor(Math.random() * 15)
-        if (dado2 >= 6) {
-        piscarImageInmg();
-        toggleImage ();
-        prota.spraytransfer(enemy);
-        hpenemy = enemy.hp;
-        textoExibido.set('Adam acertou SprayTransfer! Vez do inimigo!');
-        mostrarCont.set(false);
+  $: titleBattle= "CARTWHEEL"
+  $: TitleStyle= "color: #f2cf05;"
+  $: ColorButton= "background-color: #f2cf05;"
 
-        setTimeout(() => {
-           textoExibido.set('');
-         }, 3500);
-        }
-        else{
-            textoExibido.set('Adam errou o ataque! Vez do inimigo!');
-            mostrarCont.set(false);
+  let prota= new Adam(100,5,9);
+  let enemy= new Inimigo(150,5,9)
 
-            setTimeout(() => {
-               textoExibido.set('');
-             }, 2500);
-        }
-        if(hpenemy <= 0){
-          hpenemy = 0
-    }
-  }
-  
-  function chamarcura(){
-            if(hpadam<=(hpMaxAdam-40)){
-              ataque3Prota()
-            } else{
-              textoExibido.set('Adam não pode se curar ainda!');
+  function ataqueEnemy(){
+          setTimeout(() => {       
+            let dado4 = Math.floor(Math.random() * 15);
+            if(dado4 <= 6){
+              if (hpenemy>0) {
+              piscarImage();
               mostrarCont.set(false);
-
+              enemy.attacknemy1(prota);
+              hpadam = prota.hp;
+              textoExibido.set('Seu inimigo usou ataque fraco!');
+  
               setTimeout(() => {
-               textoExibido.set('');
-               mostrarCont.set(true);
-             }, 1000);
-        }
-      }
-
-  function ataque3Prota(){
-    let dado3 = Math.floor(Math.random() * 15)
-        if (dado3 >= 7) {
-          piscarImage();
-          prota.medbay(prota);
-          hpadam= prota.hp;
-          textoExibido.set('Adam se curou! Vez do inimigo!');
-          mostrarCont.set(false);
-          ataqueEnemy()
-          
-          setTimeout(() => {
-              textoExibido.set('');
-            }, 3500);
-            
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 4000);
+  
+          if(hpadam <= 0){
+            hpadam = 0
           }
-          
-          else{
-            textoExibido.set('Medbay Falhou! Vez do inimigo!');
-            mostrarCont.set(false);
-            ataqueEnemy()
-            
-            setTimeout(() => {
-              textoExibido.set('');
-            }, 2500);
+        } else{
+          textoExibido.set('');
+            mostrarCont.set(true);
           }
-        
-        setTimeout(() => {
-          textoExibido.set('');
-        }, 2000);
-    }
-      
-
-
-
-    //Funções de ataque do ADAM
-
-      function ataqueEnemy(){
-        setTimeout(() => {
-          
-          
-          let dado4 = Math.floor(Math.random() * 15);
-          if(dado4 <= 6){
-            if (hpenemy>0) {
-            piscarImage();
-            mostrarCont.set(false);
-            enemy.MarteloDeFerro(prota);
-            hpadam = prota.hp;
-            textoExibido.set('Seu inimigo usou Martelo de Ferro!');
-
+          winorOver();
+  
+            }else if(dado4 > 6 && dado4 <= 10){
+              if (hpenemy>0) {
+                piscarImage();
+              mostrarCont.set(false);
+              enemy.attackenemy2(prota)
+              hpadam = prota.hp;
+            textoExibido.set('Seu inimigo usou ataque médio');
             setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 2000);
+  
+            if(hpadam <= 0){
+            hpadam = 0
+          }
+        }else{
           textoExibido.set('');
-          mostrarCont.set(true);
-        }, 4000);
-
-        if(hpadam <= 0){
-          hpadam = 0
-        }
-      } else{
-        textoExibido.set('');
-          mostrarCont.set(true);
-        }
-        winorOver();
-
-          }else if(dado4 > 6 && dado4 <= 10){
+            mostrarCont.set(true);
+          }
+          winorOver();
+  
+          }else if (dado4 > 10 && dado4 <= 12){
             if (hpenemy>0) {
               piscarImage();
             mostrarCont.set(false);
-            enemy.PulsoDeDestruição(prota)
+            enemy.attackenemy3(prota)
             hpadam = prota.hp;
-          textoExibido.set('Seu inimigo usou Pulso de Destruição!');
-          setTimeout(() => {
+            textoExibido.set('Seu inimigo usou ataque forte!');
+  
+            setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 2000);
+  
+            if(hpadam <= 0){
+            hpadam = 0
+          }
+        } else{
           textoExibido.set('');
-          mostrarCont.set(true);
-        }, 2000);
-
-          if(hpadam <= 0){
-          hpadam = 0
-        }
-      }else{
-        textoExibido.set('');
-          mostrarCont.set(true);
-        }
-        winorOver();
-
-        }else if (dado4 > 10 && dado4 <= 12){
-          if (hpenemy>0) {
-            piscarImage();
-          mostrarCont.set(false);
-          enemy.TempestadeDeEletrons(prota)
-          hpadam = prota.hp;
-          textoExibido.set('Seu inimigo usou Tempestade de Elétrons!');
-
-          setTimeout(() => {
-          textoExibido.set('');
-          mostrarCont.set(true);
-        }, 2000);
-
-          if(hpadam <= 0){
-          hpadam = 0
-        }
-      } else{
-        textoExibido.set('');
-          mostrarCont.set(true);
-        }
-        winorOver();
-
-        }else{
-          mostrarCont.set(false);
-          textoExibido.set('Seu inimigo errou o ataque!');
+            mostrarCont.set(true);
+          }
           winorOver();
+  
+          }else{
+            mostrarCont.set(false);
+            textoExibido.set('Seu inimigo errou o ataque!');
+            winorOver();
+  
+            setTimeout(() => {
+            textoExibido.set('');
+            mostrarCont.set(true);
+          }, 2500);
+  
+            if(hpadam <= 0){
+            hpadam = 0
+          }
+  
+          }
+          
+        }, 4000);
+      }
 
-          setTimeout(() => {
-          textoExibido.set('');
-          mostrarCont.set(true);
-        }, 2500);
-
-          if(hpadam <= 0){
-          hpadam = 0
-        }
-
-        }
-        
-      }, 4000);
-    }
-    
-    
 </script>
 
-<audio autoplay loop src="./audio/batalha1.mp3" />
 
-<main>
-  <div
-    class="container-page"
-    style="background-image: url(/images/Fundos/Fundobatle1.png);"
-  >
-    <div class="black">
-      <button
-        onmouseenter="audio1.play();"
-        onmouseleave="audio2.play();"
-        class="menu"
-        on:click={() => trocarEstadoDoJogo("windisplay")}
-      >
-        Próximo (provisorio)
-      </button>
+<Battle 
 
-      <h1 class="txt2">CYBERTRON</h1>
+{backgroundImage} 
 
-      
+{titleBattle}
+{TitleStyle}
+{ColorButton}
 
-      <div>
-
-        {#if isVisible}
-        <img class="explosion" src="/images/explode.gif" alt="Imagem" />
-      {/if}
-
-        <div class="box" id="imgAdam">
-          <div class="hpadam">
-            <div style="width: {barWidth}%">
-              <p class="hp">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="13"
-                  height="13"
-                  fill="currentColor"
-                  class="bi bi-heart-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                  />
-                </svg>{hpadam}
-              </p>
-            </div>
-          </div>
-
-          <p class="presetname">Adam</p>
-          <img class:adamimg={blinking} src="./images/adam.gif" alt="Adam" style="width: 250px; height: 220px;" />
-        </div>
-
-        <div><img class="vs" src="./images/vs.png" alt=""></div>
-
-        <div class="box" id="imgInimigo">
-          <div class="hpini">
-            <div style="width: {barWidthenemy}%">
-              <p class="hp">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="13"
-                  height="13"
-                  fill="currentColor"
-                  class="bi bi-heart-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
-                  />
-                </svg>{hpenemy}
-              </p>
-            </div>
-          </div>
-
-          <p class="presetname">Morgred</p>
-          <img class:inmg={blinking2} src="./images/inimigo1.gif" alt="Inimigo" style="width: 250px; height: 160px; margin-top: 30px;"/>
-        </div>
-      </div>
-
-      <div>
-        <p>{$textoExibido}</p>
-
-        {#if $mostrarCont}
-          <h2 class="txt3">Escolha um ataque:</h2>
-          <div class="container">
-            <div />
-
-            <div class="item tooltip">
-              <span class="tooltiptext"
-                >Dispara três foguetes em sequência! <br> 80% de acerto</span
-              >
-
-              <AtaqButton
-                styleProp="background-color:#3b79fe;"
-                label="TRIROCKET"
-                FuncTwo={ataqueEnemy}
-                Func={ataque1Prota}
-                song="trirocket.play();"
-              />
-            </div>
-
-            <div class="item tooltip">
-              <span class="tooltiptext">Rajada de tiros feitos de sucata! <br> 55% de acerto</span>
-
-              <AtaqButton
-                styleProp="background-color:#3b79fe;"
-                label="SPRAYTRANSFER"
-                FuncTwo={ataqueEnemy}
-                Func={ataque2Prota}
-                song="spray.play();"
-              />
-            </div>
-
-            <div class="item tooltip">
-              <span class="tooltiptext">Constroi uma estação de cura! <br> 38% de acerto</span>
-
-              <AtaqButton
-                styleProp="background-color:#3b79fe;"
-                label="MEDBAY"
-                Func={chamarcura}
-                song="medbay.play();"
-              />
-            </div>
-          </div>
-        {/if}
-      </div>
-
-      <p class="back">‎</p>
-    </div>
-  </div>
-</main>
-
-<style>
+{prota}
+{enemy}
+{hpMaxAdam}
+{hpMaxEnemy}  
 
 
-  .hpadam,
-  .hpini {
-    width: 290px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: #333;
-    margin: 0 auto;
-    border: 1.8px solid rgb(0, 0, 0, 0.7);
-    margin-bottom: 5px;
-    animation: fadeInText 5s;
-  }
+{NameEnemy}
+{EnemyStyle}
+{Enemyimg}
 
-  .hpadam div {
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgb(250, 0, 0);
-    animation: fadeInText 5s;
-    transition: 300ms;
-  }
 
-  .hpini div {
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgb(250, 0, 0);
-    transition: 300ms;
-    animation: fadeInText 5s;
-  }
+ />
+
+ <style>
   
-  .explosion{
-    position: absolute;
-    width: 200px;
-    height: 220px;
-    top: 33%;
-    left: 70%;
-  }
-  
-  .vs{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 320px;
-    left: 50%;
-    
-  }
-  
-  .container-page {
-    animation: fadeInText 4s;
-  }
-  
-  .black {
-    background-color: rgba(8, 8, 8, 0.7);
-  }
-  
-  .presetname {
-    color: #ffffff;
-    padding: 0.5em;
-    margin-left: 14em;
-    margin-right: 14em;
-    border-radius: 10px;
-    margin: 0 auto;
-    text-shadow: #151515 2px 2px 2px;
-    animation: fadeInText 5s;
-  }
-  
-  .adamimg {
-    animation: fadeInText 1s;
-    width: 250px;
-    height: 220px;
-  }
-  
-  .inmg {
-    width: 250px;
-    height: 160px;
-    animation: fadeInText 1s;
-  }
-
-  p {
-    color: #ffffff;
-    text-shadow: #151515 2px 2px 2px;
-    font-size: 25px;
-    text-align: center;
-  }
-
-  .bi {
-    margin-top: 4%;
-  }
-
-  .box {
-    float: left;
-    width: 50%;
-    height: 300px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 0px black;
-    overflow: hidden;
-    animation: fadeInText 5s;
-  }
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: rgba(0, 0, 0, 0.425);
-    border-radius: 1em;
-    margin: 0 20%;
-    position: relative;
-  }
-
-  .item {
-    flex-grow: 1;
-    display: flex;
-  }
-
-  .hp {
-    font: pixel;
-    text-align: center;
-    color: rgb(196, 196, 196);
-    font-size: 15px;
-    position: absolute;
-    margin: 0 auto;
-    margin-left: 130px;
-  }
-
-  @keyframes fadeInText {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  .txt2 {
-    font-size: 45px;
-    color: #3b79fe;
-    text-shadow: #151515 2px 2px 2px;
-    margin: 0;
-    margin-bottom: 2em;
-    animation: fadeInText 5s;
-  }
-
-  .txt3 {
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    text-shadow: #333 2px 2px 2px;
-    margin: 10px;
-    text-align: center;
-    animation: fadeInText 5s;
-  }
-
-  .tooltip {
-    position: relative;
-    display: inline-block;
-  }
-
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    position: absolute;
-    top: -45%;
-    left: 0%;
-  }
-
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-  }
-</style>
+ </style>

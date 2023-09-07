@@ -1,12 +1,13 @@
 <script>
   import { Adam, Inimigo} from "../../personagens/Protagonista"
   import Battle from "./Battle.svelte";
-  import {Imagedirectory, Imageenemy} from '../Imagedirectory';
+  import {Imagedirectory, Imageenemy, Music} from '../Imagedirectory';
 
 
   $: backgroundImage = `url( ${Imagedirectory}/Fundobatle1.png)`;
   $: Enemyimg = ` ${Imageenemy}/inimigo1.gif`;
-
+  $: MusicT= `${Music}/batalha1.mp3`;
+  $: Win= '"../+Historia/WinDisplay.svelte"';
   
   $: hpMaxAdam = 100;
   $: hpMaxEnemy = 150;
@@ -20,6 +21,7 @@
 
   let prota= new Adam(100,5,9);
   let enemy= new Inimigo(150,5,9)
+
 
   function ataqueEnemy(){
           setTimeout(() => {       
@@ -128,7 +130,9 @@
 {NameEnemy}
 {EnemyStyle}
 {Enemyimg}
+{MusicT}
 
+{Win}
 
  />
 

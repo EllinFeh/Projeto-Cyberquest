@@ -2,14 +2,17 @@
   import { trocarEstadoDoJogo } from "../../Estado";
   import AtaqButton from "../AtaqButton.svelte";
   import { textoExibido, mostrarCont } from "../../personagens/store";
-  import { onMount, afterUpdate, onDestroy } from "svelte";
-  import { Imagedirectory, Imageenemy } from "../Imagedirectory";
+  import { onMount, afterUpdate } from "svelte";
+  import { Imagedirectory, Imageenemy, Music } from "../Imagedirectory";
 
-  export let backgroundImage = `url( ${Imagedirectory})`;
+  export let backgroundImage = `url(${Imagedirectory})`;
+  export let MusicT = `(${Music})`;
   export let Enemyimg = `(${Imageenemy})`;
 
   export let prota;
   export let enemy;
+
+  export let Win;
 
   // Efeito fogo
 
@@ -23,7 +26,7 @@
     }, 1000);
   }
 
-  //barra de vida adam e inimigo:
+  //barra de vida adam e inimigo;
 
   export let hpMaxAdam;
   export let hpMaxEnemy;
@@ -43,17 +46,17 @@
   export let TitleStyle;
   export let ColorButton;
 
-  //Funções ataques, sendo passadas como propiedade.
+  //Função de vitoria ou derrota;
 
   function winorOver() {
     if (hpadam <= 0) {
       trocarEstadoDoJogo("overdisplay");
     } else if (hpenemy <= 0) {
-      trocarEstadoDoJogo("windisplay");
+      trocarEstadoDoJogo({Win});
     }
   }
 
-  //Piscar Adam
+  //Piscar Adam;
 
   export let blinking = true;
 
@@ -71,7 +74,7 @@
 
   onMount(piscarImage);
 
-  // Piscar Inimigo
+  // Piscar Inimigo;
 
   export let blinking2 = true;
 
@@ -89,7 +92,7 @@
 
   onMount(piscarImageInmg);
 
-  //calcular percentual de vida
+  //calcular percentual de vida;
 
   const calculateBarWidth = () => {
     barWidthenemy = (hpenemy / hpMaxEnemy) * 100;
@@ -105,7 +108,7 @@
     calculateBarWidth();
   });
 
-  //Funções de ataque do ADAM
+  //Funções de ataque do ADAM;
 
   function ataque1Prota() {
     let dado1 = Math.floor(Math.random() * 10);
@@ -200,7 +203,7 @@
     }, 2000);
   }
 
-  //Funções de ataque do Inimigo
+  //Funções de ataque do Inimigo;
 
   function ataqueEnemy() {
     setTimeout(() => {
@@ -285,7 +288,7 @@
   }
 </script>
 
-<audio autoplay loop src="./audio/batalha1.mp3" />
+<audio autoplay loop src="{MusicT}" />
 
 <main>
   <div class="container-page" style="background-image: {backgroundImage};">
@@ -294,7 +297,7 @@
         onmouseenter="audio1.play();"
         onmouseleave="audio2.play();"
         class="menu"
-        on:click={() => trocarEstadoDoJogo("windisplay")}
+        on:click={() => trocarEstadoDoJogo(Win)}
       >
         Próximo (provisorio)
       </button>
@@ -305,6 +308,7 @@
         {#if isVisible}
           <img class="explosion" src="/images/explode.gif" alt="Imagem" />
         {/if}
+
 
         <div class="box">
           <div class="hpadam">
@@ -327,7 +331,7 @@
             </div>
           </div>
 
-          <div class="gamaadam">
+          <!-- <div class="gamaadam">
             <div style="width: {barGama}%">
               <p class="blackt hp">
                 <svg
@@ -345,7 +349,8 @@
                 {gama}
               </p>
             </div>
-          </div>
+          </div> -->
+
 
           <p class="presetname">Adam</p>
           <img
@@ -446,8 +451,7 @@
 
 <style>
   .hpadam,
-  .hpini,
-  .gamaadam {
+  .hpini{
     width: 290px;
     height: 15px;
     border-radius: 10px;
@@ -473,25 +477,25 @@
     animation: fadeInText 5s;
   }
 
-  .gamaadam div {
+  /* .gamaadam div {
     height: 100%;
     border-radius: 10px;
     background-color: rgb(255, 247, 0);
     transition: 300ms;
     animation: fadeInText 5s;
-  }
+  } */
 
-  .blackt{
+  /* .blackt{
     color:black;
     font-size: 14px;
-  }
+  } */
 
   .whitet{
     color: rgb(196, 196, 196);
     font-size: 15px;
   }
 
-  .gamaadam {
+  /* .gamaadam {
     width: 290px;
     height: 13px;
     border-radius: 10px;
@@ -499,7 +503,7 @@
     margin: 0 auto;
     border: 1.8px solid rgb(0, 0, 0, 0.7);
     animation: fadeInText 5s;
-  }
+  } */
 
   .explosion {
     position: absolute;

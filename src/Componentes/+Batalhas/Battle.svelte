@@ -14,7 +14,7 @@
 
   export let Win;
 
-  // Efeito fogo
+  // Efeito fogo no inimigo;
 
   export let isVisible = false;
 
@@ -28,7 +28,7 @@
 
   //barra de vida adam e inimigo;
 
-  export let hpMaxAdam;
+  export let hpMaxAdam; //o máximo de hp por batalha; esta variável deve ser alterada em toda batalha, para que a barra de vida fique ajustada e a função que faz o calculo da barra funcione.
   export let hpMaxEnemy;
   export let gamaMax = 50;
 

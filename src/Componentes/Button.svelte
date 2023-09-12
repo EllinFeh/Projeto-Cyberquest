@@ -32,7 +32,7 @@
         width: 180px;
         padding: 16px;
         font-family: inherit;
-        margin:0.1em;
+        margin: 0;
         box-sizing: border-box;
         border: solid 2px rgb(0, 0, 0);
         border-radius: 18px;

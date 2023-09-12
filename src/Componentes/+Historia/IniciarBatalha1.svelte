@@ -44,7 +44,7 @@
         </div>
     </div>
     
-    <Button styleProp=background-color:#910;color:#ffff;border:none; label="INICIAR BATALHA" estado="firstbattle" song="audio3.play();" />
+    <Button styleProp=background-color:#910;color:#ffff;border:none;margin-top:0 label="INICIAR BATALHA" estado="firstbattle" song="audio3.play();" />
 
 <p class="back">‎</p>
 </div>
@@ -73,7 +73,7 @@
     .box {
         float: left;
         width: 50%;
-        height: 300px;
+        height: 200px;
         border-radius: 5px;
         box-shadow: 0px 0px 0px black;
         overflow: hidden;

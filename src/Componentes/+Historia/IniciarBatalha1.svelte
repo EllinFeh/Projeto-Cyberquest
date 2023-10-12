@@ -25,8 +25,8 @@
             <div class="box tooltip" id="imgAdam" >
                 <span class="tooltiptext">ESTATISTICAS: <br>
                 HP: 100<br>
-                ATQ: 19<br>
-                DEF: 6<br>
+                ATQ: 11<br>
+                DEF: 5<br>
 
                 </span>
                 <img class="adamimg" src="./images/adam.gif" alt="Adam" />
@@ -35,8 +35,8 @@
             <div class="box tooltip" id="imgInimigo">
                 <span class="tooltiptext">ESTATISTICAS: <br>
                     HP: 150<br>
-                    ATQ: 15<br>
-                    DEF: 9<br>
+                    ATQ: 9<br>
+                    DEF: 5<br>
                     
                     </span>
                 <img class="inmg" src="./images/inimigo1.gif" alt="Inimigo" />

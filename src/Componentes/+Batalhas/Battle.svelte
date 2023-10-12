@@ -52,7 +52,7 @@
     if (hpadam <= 0) {
       trocarEstadoDoJogo("overdisplay");
     } else if (hpenemy <= 0) {
-      trocarEstadoDoJogo({Win});
+      trocarEstadoDoJogo((Win));
     }
   }
 
@@ -293,14 +293,6 @@
 <main>
   <div class="container-page" style="background-image: {backgroundImage};">
     <div class="black">
-      <button
-        onmouseenter="audio1.play();"
-        onmouseleave="audio2.play();"
-        class="menu"
-        on:click={() => trocarEstadoDoJogo(Win)}
-      >
-        Próximo (provisorio)
-      </button>
 
       <div class="titleBattle" style={TitleStyle}>{titleBattle}</div>
 
@@ -330,26 +322,6 @@
               </p>
             </div>
           </div>
-
-          <!-- <div class="gamaadam">
-            <div style="width: {barGama}%">
-              <p class="blackt hp">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="11"
-                  height="11"
-                  fill="black"
-                  class="bi bi-fire"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"
-                  />
-                </svg>
-                {gama}
-              </p>
-            </div>
-          </div> -->
 
 
           <p class="presetname">Adam</p>
@@ -477,33 +449,11 @@
     animation: fadeInText 5s;
   }
 
-  /* .gamaadam div {
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgb(255, 247, 0);
-    transition: 300ms;
-    animation: fadeInText 5s;
-  } */
-
-  /* .blackt{
-    color:black;
-    font-size: 14px;
-  } */
-
   .whitet{
     color: rgb(196, 196, 196);
     font-size: 15px;
   }
 
-  /* .gamaadam {
-    width: 290px;
-    height: 13px;
-    border-radius: 10px;
-    background-color: #333;
-    margin: 0 auto;
-    border: 1.8px solid rgb(0, 0, 0, 0.7);
-    animation: fadeInText 5s;
-  } */
 
   .explosion {
     position: absolute;
@@ -610,9 +560,7 @@
   .titleBattle {
     font-size: 45px;
     text-shadow: #151515 2px 2px 2px;
-    margin: 0;
-    margin-top: 1em;
-    margin-bottom: 2em;
+    padding: 2em;
     animation: fadeInText 5s;
   }
 

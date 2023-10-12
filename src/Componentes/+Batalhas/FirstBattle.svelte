@@ -7,7 +7,7 @@
   $: backgroundImage = `url( ${Imagedirectory}/Fundobatle1.png)`;
   $: Enemyimg = ` ${Imageenemy}/inimigo1.gif`;
   $: MusicT= `${Music}/batalha1.mp3`;
-  $: Win= '"../+Historia/WinDisplay.svelte"';
+  $: Win= 'windisplay';
   
   $: hpMaxAdam = 100;
   $: hpMaxEnemy = 150;
@@ -16,10 +16,10 @@
   $: EnemyStyle= "width: 250px; height: 160px; margin-top: 30px;"
 
   $: titleBattle= "CARTWHEEL"
-  $: TitleStyle= "color: #f2cf05;"
-  $: ColorButton= "background-color: #f2cf05;"
+  $: TitleStyle= "color: #70ecff;"
+  $: ColorButton= "background-color: #70ecff;"
 
-  let prota= new Adam(100,5,9);
+  let prota= new Adam(100,5,11);
   let enemy= new Inimigo(150,5,9)
 
 

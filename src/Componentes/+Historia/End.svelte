@@ -16,7 +16,7 @@ style="background-image: url(./images/Fundos/Fundovitoria.gif);"
        <h1>Adam Venceu!</h1>
        <h2>Derrotou o vilão e a paz reinou entre todos os planetas!</h2>
 
-       <VoltarMenu/>
+       <VoltarMenu />
 		
 		<p class="back">‎</p>
 	</div>

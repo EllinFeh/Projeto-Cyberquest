@@ -21,9 +21,9 @@
         <div class="">
             <div class="box tooltip" id="imgAdam">
                 <span class="tooltiptext">ESTATISTICAS: <br>
-                    HP: 190<br>
-                    ATQ: 13<br>
-                    DEF: 24<br>
+                    HP: 200<br>
+                    ATQ: 15<br>
+                    DEF: 10<br>
                 </span>
                 <img class="adamimg" src="./images/adam.gif" alt="Adam" />
             </div>
@@ -31,8 +31,8 @@
             <div class="box tooltip" id="imgInimigo">
                 <span class="tooltiptext">ESTATISTICAS: <br>
                     HP: 250<br>
-                    ATQ: 15<br>
-                    DEF: 20<br>
+                    ATQ: 13<br>
+                    DEF: 10<br>
                 </span>
                 <img class="inmg" src="./images/boss.gif" alt="Inimigo" />
             </div>

@@ -10,7 +10,7 @@
 	<div class="black"> 
 
 		<h1>COMO JOGAR</h1>
-		<h2> 1. Você precisa decidir qual ataque usar,Adam possui três ataques: <a>Trirocket, Spraytransfer e Medbay.</a> <br>
+		<h2> 1. Você precisa decidir qual ataque usar,Adam possui três ataques:  <p style="margin: 0; color: white;">Trirocket, Spraytransfer e Medbay</p> <br>
 			Para atacar, escolha o ataque que deseja usar.</h2>
 			<br>
 			<h2>2. Após a ação de Adam, é a vez dos inimigos agirem.

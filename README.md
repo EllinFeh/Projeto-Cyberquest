@@ -38,6 +38,16 @@ Após a conclusão do projeto acadêmico, continuei a trabalhar no CYBERQUEST pa
 
 <img align="left" src="/public/images/PrintsDoGame/tela7.png" alt="ellinfeh"> 
 
+<img align="left" src="/public/images/PrintsDoGame/tela8.png" alt="ellinfeh"> 
+
+
+### Batalha 2:
+
+<img align="left" src="/public/images/PrintsDoGame/tela9.png" alt="ellinfeh"> 
+
+<img align="left" src="/public/images/PrintsDoGame/tela10.png" alt="ellinfeh"> 
+
+
 
 ### Existem mais 3 Batalhas que estão disponíveis no jogo, com personagens e dificuldade totalmente diferenciadas, venha conferir: https://github.com/EllinFeh/Projeto-Cyberquest
 
